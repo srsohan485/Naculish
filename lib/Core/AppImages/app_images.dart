@@ -20,5 +20,7 @@ class AppImages {
   static const String VisaCard = "assets/images/VisaCard.png";
   static const String VisaCardBackPart = "assets/images/VisaCardBackPart.png";
   static const String Heart = "assets/images/heart.png";
+  static const String ProfileMan = "assets/images/profileman.png";
+  static const String Profile = "assets/images/profile.png";
 
 }
