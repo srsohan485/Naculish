@@ -4,6 +4,7 @@ import 'Features/AppUILightMode/Auth/View/forgot_password.dart';
 import 'Features/AppUILightMode/CreateProfile/ProfileLanguage.dart';
 import 'Features/AppUILightMode/Home/HomeMapScreen.dart';
 import 'Features/AppUILightMode/Leaderboard/LeaderboardScreen.dart';
+import 'Features/AppUILightMode/Quest/QuestMenuScreen.dart';
 import 'Features/AppUILightMode/Shop/ShopScreen.dart';
 import 'Features/AppUILightMode/Shop/ShopWidget.dart';
 import 'Features/AppUILightMode/Shop/WithdhrawPayPal.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         );
       },
       // ✅ Pass the first screen as child — NOT inside MaterialApp directly
-      child: const Withdhrawpaypal(),
+      child: const QuestMenuScreen(),
     );
   }
 }
