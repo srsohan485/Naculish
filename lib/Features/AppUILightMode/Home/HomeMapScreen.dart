@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../Core/AppImages/app_images.dart';
+import 'HomeAvenueScreen.dart';
 import 'HomeWidget.dart';
 
 class HomeMapScreen extends StatelessWidget {
@@ -74,8 +75,17 @@ class HomeMapScreen extends StatelessWidget {
                   Positioned(
                     top: 230.h,
                     left: 160.w,
-                    child: Image.asset(AppImages.diration,
-                        width: 35.w, height: 40.h),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeAvenueScreen()));
+                        // এখানে তোমার action দাও
+                      },
+                      child: Image.asset(
+                        AppImages.diration,
+                        width: 35.w,
+                        height: 40.h,
+                      ),
+                    ),
                   ),
                   // Direction black sign lower
                   Positioned(

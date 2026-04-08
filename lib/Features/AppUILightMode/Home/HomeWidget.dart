@@ -5,6 +5,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../Quiz/QuizBasicGreetingsScreen.dart';
+import '../Quiz/QuizIntroYourselfScreen.dart';
+import '../Quiz/QuizWhatsGoodScreen.dart';
+import 'HomeLessonDetailScreen.dart';
 
 
 
@@ -37,43 +41,48 @@ class LessonCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.bold,
-              color: AppColors.instance.titleTextColor,
+      child: GestureDetector(
+        onTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeLessonDetailScreen()));
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 14.sp,
+                fontWeight: FontWeight.bold,
+                color: AppColors.instance.titleTextColor,
+              ),
             ),
-          ),
-          SizedBox(height: 8.h),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(6.r),
-            child: LinearProgressIndicator(
-              value: progress,
-              minHeight: 6.h,
-              backgroundColor: AppColors.instance.white500,
-              valueColor: AlwaysStoppedAnimation<Color>(
-                  AppColors.instance.orange),
+            SizedBox(height: 8.h),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(6.r),
+              child: LinearProgressIndicator(
+                value: progress,
+                minHeight: 6.h,
+                backgroundColor: AppColors.instance.white500,
+                valueColor: AlwaysStoppedAnimation<Color>(
+                    AppColors.instance.orange),
+              ),
             ),
-          ),
-          SizedBox(height: 6.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(lessonsText,
-                  style: TextStyle(
-                      fontSize: 11.sp,
-                      color: AppColors.instance.subTextColor)),
-              Text(completedText,
-                  style: TextStyle(
-                      fontSize: 11.sp,
-                      color: AppColors.instance.subTextColor)),
-            ],
-          ),
-        ],
+            SizedBox(height: 6.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(lessonsText,
+                    style: TextStyle(
+                        fontSize: 11.sp,
+                        color: AppColors.instance.subTextColor)),
+                Text(completedText,
+                    style: TextStyle(
+                        fontSize: 11.sp,
+                        color: AppColors.instance.subTextColor)),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -84,12 +93,15 @@ class LessonDetailTile extends StatelessWidget {
   final String title;
   final String subtitle;
   final bool isUnlocked;
+  final Widget? destination; // 👈 add this
+
 
   const LessonDetailTile({
     required this.iconPath,
     required this.title,
     required this.subtitle,
     required this.isUnlocked,
+    this.destination, // 👈 add
   });
 
   @override
@@ -150,7 +162,15 @@ class LessonDetailTile extends StatelessWidget {
           // Lock / Start button
           isUnlocked
               ? ElevatedButton(
-            onPressed: () {},
+            onPressed: isUnlocked && destination != null
+                ? () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => destination!),
+              );
+            }
+                : null,
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.instance.loginBtnColor,
               padding: EdgeInsets.symmetric(
@@ -178,7 +198,8 @@ class LessonDetailTile extends StatelessWidget {
             ),
           )
               : Icon(Icons.lock,
-              color: AppColors.instance.subTextColor, size: 20.sp),
+              color: AppColors.instance.subTextColor,
+              size: 20.sp),
         ],
       ),
     );

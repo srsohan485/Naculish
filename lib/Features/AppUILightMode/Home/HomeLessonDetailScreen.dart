@@ -3,10 +3,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:naculis/Features/AppUILightMode/Quiz/QuizIntroYourselfScreen.dart';
+import 'package:naculis/Features/AppUILightMode/Quiz/QuizWhatsGoodScreen.dart';
 
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../Quiz/QuizBasicGreetingsScreen.dart';
 import 'HomeWidget.dart';
 
 class HomeLessonDetailScreen extends StatelessWidget {
@@ -20,18 +23,21 @@ class HomeLessonDetailScreen extends StatelessWidget {
         'title': AppStrings.BasicGreetings,
         'sub': AppStrings.Vocabulary,
         'unlocked': true,
+        'page': QuizBasicGreetingsScreen(), // 👈 add this
       },
       {
         'icon': AppImages.Icon2,
         'title': AppStrings.WhatGood,
         'sub': AppStrings.Listening,
-        'unlocked': false,
+        'unlocked': true,
+        'page': QuizWhatsGoodScreen(),
       },
       {
         'icon': AppImages.Icon3,
         'title': AppStrings.IntroYourself,
         'sub': AppStrings.Pronunciation,
         'unlocked': false,
+        'page': QuizIntroYourselfScreen(),
       },
     ];
 
@@ -84,6 +90,7 @@ class HomeLessonDetailScreen extends StatelessWidget {
                     title: item['title'] as String,
                     subtitle: item['sub'] as String,
                     isUnlocked: item['unlocked'] as bool,
+                    destination: item['page'] as Widget,
                   );
                 },
               ),
