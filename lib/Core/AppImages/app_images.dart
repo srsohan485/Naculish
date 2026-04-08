@@ -17,5 +17,8 @@ class AppImages {
   static const String Tropy = "assets/images/tropy.png";
   static const String Ellipse = "assets/images/Ellipse.png";
   static const String Vector = "assets/images/Vector.png";
+  static const String VisaCard = "assets/images/VisaCard.png";
+  static const String VisaCardBackPart = "assets/images/VisaCardBackPart.png";
+  static const String Heart = "assets/images/heart.png";
 
 }
