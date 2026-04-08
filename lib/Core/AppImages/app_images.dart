@@ -15,5 +15,7 @@ class AppImages {
   static const String Strit = "assets/images/strit.png";
   static const String Rodeimage = "assets/images/rodeimage.png";
   static const String Tropy = "assets/images/tropy.png";
+  static const String Ellipse = "assets/images/Ellipse.png";
+  static const String Vector = "assets/images/Vector.png";
 
 }
