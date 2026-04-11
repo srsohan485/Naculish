@@ -20,81 +20,96 @@ class HomeMapScreen extends StatelessWidget {
           children: [
             TopStatsBar(),
             Expanded(
-              child: Stack(
-                children: [
-                  // Road image as background
-                  Positioned.fill(
-                    child: Image.asset(
-                      AppImages.Rodeimage,
-                      fit: BoxFit.fitHeight,
-                    ),
-                  ),
-                  // Orange building right top
-                  Positioned(
-                    top: 30.h,
-                    right: 240.w,
-                    child: Image.asset(AppImages.building,
-                        width: 60.w, height: 60.h),
-                  ),
-                  // Orange building right middle
-                  Positioned(
-                    top: 180.h,
-                    right: 30.w,
-                    child: Image.asset(AppImages.building,
-                        width: 80.w, height: 75.h),
-                  ),
-                  // Orange building right lower
-                  Positioned(
-                    top: 480.h,
-                    right: 100.w,
-                    child: Image.asset(AppImages.building,
-                        width: 55.w, height: 75.h),
-                  ),
-                  // Dark building left middle
-                  Positioned(
-                    top: 320.h,
-                    left: 110.w,
-                    child: Image.asset(AppImages.buildingblack,
-                        width: 55.w, height: 80.h),
-                  ),
-                  // Dark building left bottom
-                  Positioned(
-                    bottom: 70.h,
-                    left: 30.w,
-                    child: Image.asset(AppImages.buildingblack,
-                        width: 50.w, height: 70.h),
-                  ),
-                  // Direction sign mid
-                  Positioned(
-                    top: 150.h,
-                    left: 120.w,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeAvenueScreen()));
-                        // এখানে তোমার action দাও
-                      },
-                      child: Image.asset(
-                        AppImages.diration,
-                        width: 35.w,
-                        height: 40.h,
+              child: SingleChildScrollView(
+                child: SizedBox(
+                  height: 1200.h, // 👈 বড় height = scroll enable
+                  child: Stack(
+                    children: [
+                      /// 🌍 SMALL ROAD (centered)
+                      Positioned(
+                        top: 50.h,
+                        left: 0,
+                        right: 0,
+                        child: Center(
+                          child: Image.asset(
+                            AppImages.Rodeimage,
+                            width: 260.w,   // 👈 road slim
+                            height: 700.h,  // 👈 road ছোট
+                            fit: BoxFit.fill,
+                          ),
+                        ),
                       ),
-                    ),
+
+                      /// 🟧 Buildings (road এর পাশে align)
+                      Positioned(
+                        top: 80.h,
+                        right: 40.w,
+                        child: Image.asset(AppImages.building,
+                            width: 70.w, height: 70.h),
+                      ),
+
+                      Positioned(
+                        top: 220.h,
+                        right: 30.w,
+                        child: Image.asset(AppImages.building,
+                            width: 85.w, height: 80.h),
+                      ),
+
+                      Positioned(
+                        top: 500.h,
+                        right: 60.w,
+                        child: Image.asset(AppImages.building,
+                            width: 60.w, height: 70.h),
+                      ),
+
+                      Positioned(
+                        top: 250.h,
+                        left: 30.w,
+                        child: Image.asset(AppImages.buildingblack,
+                            width: 60.w, height: 80.h),
+                      ),
+
+                      Positioned(
+                        top: 700.h,
+                        left: 20.w,
+                        child: Image.asset(AppImages.buildingblack,
+                            width: 55.w, height: 75.h),
+                      ),
+
+                      /// 👉 Clickable Direction
+                      Positioned(
+                        top: 200.h,
+                        left: 140.w,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => HomeAvenueScreen(),
+                              ),
+                            );
+                          },
+                          child: Image.asset(
+                            AppImages.diration,
+                            width: 40.w,
+                            height: 40.h,
+                          ),
+                        ),
+                      ),
+
+                      /// 🛣️ Avenue
+                      Positioned(
+                        top: 350.h,
+                        left: 180.w,
+                        child: Image.asset(
+                          AppImages.avenue,
+                          width: 45.w,
+                          height: 45.h,
+                        ),
+                      ),
+                    ],
                   ),
-                  // Avenue sign top left
-                  Positioned(
-                    top: 300.h,
-                    left: 200.w,
-                    child:
-                    Image.asset(AppImages.avenue, width: 40.w, height: 40.h),
-                  ),
-                  // Direction black sign lower
-                  Positioned(
-                    top: 440.h,
-                    right: 190.w,
-                    child: Image.asset(AppImages.dirationblack,
-                        width: 35.w, height: 35.h),
-                  ),
-                ],
+                ),
               ),
             ),
             BottomNavBar(),
