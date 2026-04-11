@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naculis/Core/AppText/app_text.dart';
 import 'package:naculis/Features/AppUILightMode/Splash/splash_widget.dart';
 
+import '../SingInSingUp/Singin_Page.dart';
+
 class LanguageSelectionScreen extends StatelessWidget {
   const LanguageSelectionScreen({super.key});
 
@@ -95,7 +97,7 @@ class LanguageSelectionScreen extends StatelessWidget {
                         title: AppStrings.USEnglish,
                         subtitle: AppStrings.Welcome,
                         onTap: () {
-                          // Navigate to onboarding with English
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> SignInScreen()));
                         },
                       ),
                       SizedBox(height: 12.h),
@@ -103,7 +105,7 @@ class LanguageSelectionScreen extends StatelessWidget {
                         title: AppStrings.Espanol,
                         subtitle: AppStrings.Naculis,
                         onTap: () {
-                          // Navigate to onboarding with Spanish
+                          // Navigator.push(context, MaterialPageRoute(builder: (context)=> SignInScreen()));
                         },
                       ),
                       SizedBox(height: 48.h),

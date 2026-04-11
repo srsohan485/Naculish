@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../Core/AppColor/app_color.dart';
 import '../../../../Core/AppText/app_text.dart';
+import '../../Splash/splash_screen1.dart';
 import 'auth_widget.dart';
 
 class NewPasswordScreen extends StatelessWidget {
@@ -16,7 +17,7 @@ class NewPasswordScreen extends StatelessWidget {
     final colors = AppColors.instance;
 
     return Scaffold(
-      backgroundColor: colors.orange,
+      backgroundColor: colors.bg,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 32.h),
@@ -92,7 +93,7 @@ class NewPasswordScreen extends StatelessWidget {
               PrimaryButton(
                 label: AppStrings.save,
                 onTap: () {
-                  // Handle save
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SplashScreen()));
                 },
               ),
             ],

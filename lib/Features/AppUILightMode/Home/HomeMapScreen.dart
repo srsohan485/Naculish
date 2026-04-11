@@ -32,21 +32,21 @@ class HomeMapScreen extends StatelessWidget {
                   // Orange building right top
                   Positioned(
                     top: 30.h,
-                    right: 140.w,
+                    right: 240.w,
                     child: Image.asset(AppImages.building,
-                        width: 60.w, height: 80.h),
+                        width: 60.w, height: 60.h),
                   ),
                   // Orange building right middle
                   Positioned(
                     top: 180.h,
-                    right: 15.w,
+                    right: 30.w,
                     child: Image.asset(AppImages.building,
-                        width: 55.w, height: 75.h),
+                        width: 80.w, height: 75.h),
                   ),
                   // Orange building right lower
                   Positioned(
-                    top: 350.h,
-                    right: 20.w,
+                    top: 480.h,
+                    right: 100.w,
                     child: Image.asset(AppImages.building,
                         width: 55.w, height: 75.h),
                   ),
@@ -64,17 +64,10 @@ class HomeMapScreen extends StatelessWidget {
                     child: Image.asset(AppImages.buildingblack,
                         width: 50.w, height: 70.h),
                   ),
-                  // Avenue sign top left
-                  Positioned(
-                    top: 60.h,
-                    left: 25.w,
-                    child:
-                    Image.asset(AppImages.avenue, width: 40.w, height: 40.h),
-                  ),
                   // Direction sign mid
                   Positioned(
-                    top: 230.h,
-                    left: 160.w,
+                    top: 150.h,
+                    left: 120.w,
                     child: GestureDetector(
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeAvenueScreen()));
@@ -86,6 +79,13 @@ class HomeMapScreen extends StatelessWidget {
                         height: 40.h,
                       ),
                     ),
+                  ),
+                  // Avenue sign top left
+                  Positioned(
+                    top: 300.h,
+                    left: 200.w,
+                    child:
+                    Image.asset(AppImages.avenue, width: 40.w, height: 40.h),
                   ),
                   // Direction black sign lower
                   Positioned(

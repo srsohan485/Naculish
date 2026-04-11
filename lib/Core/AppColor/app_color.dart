@@ -119,6 +119,7 @@ class AppColors {
   final Color card = const Color(0xFFFE7400);
   final Color black = const Color(0xFF000000);
   final Color box = const Color(0xFFFFECCB);
+  final Color bg = const Color(0xFFF49000);
 
 
 

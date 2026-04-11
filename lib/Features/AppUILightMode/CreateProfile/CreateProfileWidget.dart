@@ -129,7 +129,13 @@ class SubText extends StatelessWidget {
 
 class BottomButton extends StatelessWidget {
   final String label;
-  const BottomButton({required this.label});
+  final VoidCallback onPressed;
+
+  const BottomButton({
+    super.key,
+    required this.label,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -137,9 +143,7 @@ class BottomButton extends StatelessWidget {
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>CreateProfileFeelingScreen()));
-        },
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.instance.loginBtnColor,
           padding: EdgeInsets.symmetric(vertical: 16.h),

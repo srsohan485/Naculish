@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
 import 'CreateProfileWidget.dart';
+import 'ProfileFeelingScreen.dart';
 
 class CreateProfileVibeScreen extends StatelessWidget {
   const CreateProfileVibeScreen({super.key});
@@ -47,7 +48,15 @@ class CreateProfileVibeScreen extends StatelessWidget {
                 },
               ),
             ),
-            BottomButton(label: AppStrings.continu),
+            BottomButton(
+              label: AppStrings.continu,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => CreateProfileFeelingScreen()),
+                );
+              },
+            ),
           ],
         ),
       ),

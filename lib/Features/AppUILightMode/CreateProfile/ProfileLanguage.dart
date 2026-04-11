@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
 import 'CreateProfileWidget.dart';
+import 'CreateVibeScreen.dart';
 
 class CreateProfileLanguageScreen extends StatelessWidget {
   const CreateProfileLanguageScreen({super.key});
@@ -46,7 +47,15 @@ class CreateProfileLanguageScreen extends StatelessWidget {
                 },
               ),
             ),
-            BottomButton(label: AppStrings.start),
+            BottomButton(
+              label: AppStrings.start,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => CreateProfileVibeScreen()),
+                );
+              },
+            ),
           ],
         ),
       ),
