@@ -22,5 +22,7 @@ class AppImages {
   static const String Heart = "assets/images/heart.png";
   static const String ProfileMan = "assets/images/profileman.png";
   static const String Profile = "assets/images/profile.png";
+  static const String Contact = "assets/images/contact.png";
+  static const String Refer = "assets/images/refer.png";
 
 }

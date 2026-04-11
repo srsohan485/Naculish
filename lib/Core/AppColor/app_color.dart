@@ -115,6 +115,11 @@ class AppColors {
   final Color mainBtnColor = const Color(0xFF2B3A5D);
   final Color maintextColor = const Color(0xFF8BAAD8);
   final Color textcolor = const Color(0xFF88BEB2);
+  final Color bacgroundcolor = const Color(0xFFF5DEB3);
+  final Color card = const Color(0xFFFE7400);
+  final Color black = const Color(0xFF000000);
+  final Color box = const Color(0xFFFFECCB);
+
 
 
 

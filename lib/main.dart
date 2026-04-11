@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'Features/AppUILightMode/Auth/View/forgot_password.dart';
+import 'Features/AppUILightMode/ContactWidget/ContactUsPage.dart';
+import 'Features/AppUILightMode/ContactWidget/ContactWidget.dart';
 import 'Features/AppUILightMode/CreateProfile/ProfileLanguage.dart';
 import 'Features/AppUILightMode/Home/HomeMapScreen.dart';
 import 'Features/AppUILightMode/Leaderboard/LeaderboardScreen.dart';
+import 'Features/AppUILightMode/MyBalance/BalancePage.dart';
+import 'Features/AppUILightMode/MyBalance/Balancewidget.dart';
+import 'Features/AppUILightMode/Notifications/NotificationPage.dart';
+import 'Features/AppUILightMode/Notifications/NotificationsWidget.dart';
 import 'Features/AppUILightMode/Profile/ProfileScreen.dart';
 import 'Features/AppUILightMode/Quest/QuestMenuScreen.dart';
 import 'Features/AppUILightMode/Shop/ShopScreen.dart';
@@ -35,7 +41,7 @@ class MyApp extends StatelessWidget {
         );
       },
       // ✅ Pass the first screen as child — NOT inside MaterialApp directly
-      child: const ProfileScreen(),
+      child: const SignInScreen(),
     );
   }
 }
