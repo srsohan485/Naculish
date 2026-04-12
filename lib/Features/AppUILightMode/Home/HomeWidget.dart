@@ -31,7 +31,7 @@ class LessonCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(14.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.instance.boxcard,
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
@@ -109,7 +109,7 @@ class LessonDetailTile extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.instance.boxcard,
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
@@ -252,7 +252,7 @@ class StatItem extends StatelessWidget {
   }
 }
 
-class BottomNavBar extends StatelessWidget {
+class BottomNavBa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final navIcons = [

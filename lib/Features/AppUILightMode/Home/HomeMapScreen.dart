@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../Core/AppImages/app_images.dart';
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 import 'HomeAvenueScreen.dart';
 import 'HomeWidget.dart';
 
@@ -112,7 +113,7 @@ class HomeMapScreen extends StatelessWidget {
                 ),
               ),
             ),
-            BottomNavBar(),
+            MainBottomNavBar(),
           ],
         ),
       ),

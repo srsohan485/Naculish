@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 import '../Home/HomeWidget.dart';
 import 'ShopWidget.dart' hide TopStatsBar, BottomNavBar;
 
@@ -13,7 +14,7 @@ class Withdhrawpaypal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.instance.background,
+      backgroundColor: AppColors.instance.box,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
@@ -51,7 +52,7 @@ class Withdhrawpaypal extends StatelessWidget {
         ),
       ),
       // ── Bottom Navigation ──────────────────────────────────────────────────
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: MainBottomNavBar(),
     );
   }
 }

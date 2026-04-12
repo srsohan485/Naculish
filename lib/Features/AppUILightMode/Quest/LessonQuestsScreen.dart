@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 import 'QuestWidget.dart';
 
 class LessonQuestsScreen extends StatelessWidget {
@@ -105,7 +106,7 @@ class LessonQuestsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            BottomNavBar(),
+            MainBottomNavBar(),
           ],
         ),
       ),

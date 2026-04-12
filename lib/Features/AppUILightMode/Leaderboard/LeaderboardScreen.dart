@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 import '../Home/HomeWidget.dart';
 import 'LeaderBoardWidget.dart' hide BottomNavBar, TopStatsBar;
 
@@ -56,7 +57,7 @@ class LeaderboardScreen extends StatelessWidget {
             ),
 
             // ── Bottom Nav
-            BottomNavBar(),
+            MainBottomNavBar(),
           ],
         ),
       ),

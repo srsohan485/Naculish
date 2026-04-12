@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 import 'HomeWidget.dart';
 
 class HomeAvenueScreen extends StatelessWidget {
@@ -35,7 +36,7 @@ class HomeAvenueScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: AppColors.instance.background,
+      backgroundColor: AppColors.instance.box,
       body: SafeArea(
         child: Column(
           children: [
@@ -94,7 +95,7 @@ class HomeAvenueScreen extends StatelessWidget {
                 },
               ),
             ),
-            BottomNavBar(),
+            MainBottomNavBar(),
           ],
         ),
       ),

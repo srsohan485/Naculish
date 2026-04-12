@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../Core/AppColor/app_color.dart';
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 import '../Home/HomeWidget.dart';
 import 'ShopWidget.dart' hide TopStatsBar, BottomNavBar;
 
@@ -12,7 +13,7 @@ class ShopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.instance.background,
+      backgroundColor: AppColors.instance.box,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
@@ -39,7 +40,7 @@ class ShopScreen extends StatelessWidget {
         ),
       ),
       // ── Bottom Navigation ──────────────────────────────────────────────────
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: MainBottomNavBar(),
     );
   }
 }

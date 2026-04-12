@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naculis/Core/AppColor/app_color.dart';
 import 'package:naculis/Core/AppImages/app_images.dart';
 
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 import '../Auth/View/auth_widget.dart';
 import '../Notifications/NotificationsWidget.dart';
 
@@ -55,7 +56,7 @@ class ReferFriendPage extends StatelessWidget {
               ),
             ),
           ),
-          BottomNavBar(),
+          MainBottomNavBar(),
         ],
       ),
     );

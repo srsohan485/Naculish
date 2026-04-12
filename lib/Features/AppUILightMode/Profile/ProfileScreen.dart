@@ -9,6 +9,7 @@ import 'package:naculis/Features/AppUILightMode/Profile/ProfileDetailScreen.dart
 
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 import 'ProfileWidget.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -105,7 +106,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
             ),
-            BottomNavBar(),
+            MainBottomNavBar(),
           ],
         ),
       ),

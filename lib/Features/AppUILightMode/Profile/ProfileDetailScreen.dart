@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 import '../Home/HomeWidget.dart';
 import 'ProfileWidget.dart' hide BottomNavBar;
 
@@ -52,7 +53,7 @@ class ProfileDetailScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                BottomNavBar(),
+                MainBottomNavBar(),
               ],
             ),
           ],

@@ -9,6 +9,7 @@ import 'package:naculis/Features/AppUILightMode/Quiz/QuizWhatsGoodScreen.dart';
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 import '../Quiz/QuizBasicGreetingsScreen.dart';
 import 'HomeWidget.dart';
 
@@ -95,7 +96,7 @@ class HomeLessonDetailScreen extends StatelessWidget {
                 },
               ),
             ),
-            BottomNavBar(),
+            MainBottomNavBar(),
           ],
         ),
       ),

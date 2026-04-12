@@ -85,7 +85,7 @@ class InputField extends StatelessWidget {
   const InputField({
     required this.controller,
     required this.hintText,
-    required this.maxLines,
+    required this.maxLines, required  keyboardType,
   });
 
   @override

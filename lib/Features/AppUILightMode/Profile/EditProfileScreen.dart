@@ -8,6 +8,7 @@ import 'package:naculis/Core/AppImages/app_images.dart';
 
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 import 'ProfileWidget.dart';
 
 class EditProfileScreen extends StatelessWidget {
@@ -154,7 +155,7 @@ class EditProfileScreen extends StatelessWidget {
                 ),
               ),
             ),
-            BottomNavBar(),
+            MainBottomNavBar(),
           ],
         ),
       ),

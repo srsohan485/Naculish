@@ -22,7 +22,7 @@ class CreateProfileLanguageScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: AppColors.instance.background,
+      backgroundColor: AppColors.instance.box,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

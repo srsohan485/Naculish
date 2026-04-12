@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naculis/Features/AppUILightMode/Quest/LessonQuestsScreen.dart';
 
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 import '../Home/HomeWidget.dart';
 import 'AutoTrackedQuestsScreen.dart';
 import 'QuestWidget.dart' hide TopStatsBar, BottomNavBar;
@@ -48,7 +49,7 @@ class QuestMenuScreen extends StatelessWidget {
                 ),
               ),
             ),
-            BottomNavBar(),
+            MainBottomNavBar(),
           ],
         ),
       ),

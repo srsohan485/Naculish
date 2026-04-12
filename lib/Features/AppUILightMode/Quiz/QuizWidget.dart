@@ -7,6 +7,8 @@ import 'package:naculis/Features/AppUILightMode/Quiz/QuizResultScreen.dart';
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../Speak/ChatScreen.dart';
+import '../Speak/SpeakScreen.dart';
 
 
 class QuizCard extends StatelessWidget {
@@ -19,7 +21,7 @@ class QuizCard extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.all(14.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.instance.box,
         borderRadius: BorderRadius.circular(14.r),
         boxShadow: [
           BoxShadow(
@@ -34,16 +36,19 @@ class QuizCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           // Question text
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 8.h),
-            child: Text(
-              '$questionNumber. ${AppStrings.slangQuestion}',
-              style: TextStyle(
-                fontSize: 13.sp,
-                fontWeight: FontWeight.w500,
-                color: AppColors.instance.titleTextColor,
+          Container(
+            color: AppColors.instance.boxcard,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 8.h),
+              child: Text(
+                '$questionNumber. ${AppStrings.slangQuestion}',
+                style: TextStyle(
+                  fontSize: 13.sp,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.instance.titleTextColor,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
           SizedBox(height: 12.h),
@@ -52,16 +57,25 @@ class QuizCard extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 8.h),
-                  decoration: BoxDecoration(
-                    color: AppColors.instance.loginBtnColor,
-                    borderRadius: BorderRadius.circular(8.r),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatScreen()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.instance.loginBtnColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    padding: EdgeInsets.symmetric(vertical: 8.h),
+                    elevation: 0,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('🤙', style: TextStyle(fontSize: 14.sp)),
+                      Text(
+                        '🤙',
+                        style: TextStyle(fontSize: 14.sp),
+                      ),
                       SizedBox(width: 6.w),
                       Text(
                         AppStrings.type,
@@ -77,17 +91,26 @@ class QuizCard extends StatelessWidget {
               ),
               SizedBox(width: 10.w),
               Expanded(
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 8.h),
-                  decoration: BoxDecoration(
-                    color: AppColors.instance.orange,
-                    borderRadius: BorderRadius.circular(8.r),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SpeakScreen()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.instance.orange,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    padding: EdgeInsets.symmetric(vertical: 8.h),
+                    elevation: 0,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.mic,
-                          color: Colors.white, size: 16.sp),
+                      Icon(
+                        Icons.mic,
+                        color: Colors.white,
+                        size: 16.sp,
+                      ),
                       SizedBox(width: 6.w),
                       Text(
                         AppStrings.speak,
@@ -100,7 +123,7 @@ class QuizCard extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
+              )
             ],
           ),
 

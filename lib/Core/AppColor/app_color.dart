@@ -120,6 +120,8 @@ class AppColors {
   final Color black = const Color(0xFF000000);
   final Color box = const Color(0xFFFFECCB);
   final Color bg = const Color(0xFFF49000);
+  final Color boxcard = const Color(0xFFC2E4B0);
+  final Color green = const Color(0xFF36BA17);
 
 
 

@@ -1,11 +1,11 @@
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide AppBar;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naculis/Core/AppColor/app_color.dart';
 import 'package:naculis/Core/AppText/app_text.dart';
-import 'package:naculis/Features/AppUILightMode/Shop/ShopScreen.dart';
-
 import '../../../Core/AppImages/app_images.dart';
+import 'SelectPaymentGatewayPage.dart';
+import 'WithdhrawPayPal.dart';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Top Stats Bar
@@ -149,7 +149,9 @@ class GemsAvailableCard extends StatelessWidget {
             width: double.infinity,
             height: 44.h,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Withdhrawpaypal()));
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.instance.green500,
                 shape: RoundedRectangleBorder(
@@ -212,7 +214,7 @@ class GemToUsdCard extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: AppColors.instance.white50,
+        color: AppColors.instance.bacgroundcolor,
         borderRadius: BorderRadius.circular(16.r),
         border: Border.all(color: AppColors.instance.orange),
       ),
@@ -282,7 +284,7 @@ class GemToUsdCard extends StatelessWidget {
             height: 44.h,
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ShopScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectPaymentGatewayPage()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.instance.green500,
@@ -588,32 +590,120 @@ class NavIcon extends StatelessWidget {
   }
 }
 
-class BottomNavBar extends StatelessWidget {
+class AppBar extends StatelessWidget {
+  final String title;
+  const AppBar({required this.title});
+
   @override
   Widget build(BuildContext context) {
-    final navIcons = [
-      AppImages.Icon1,
-      AppImages.Icon2,
-      AppImages.Icon3,
-      AppImages.Icon4,
-      AppImages.Icon5,
-      AppImages.Icon6,
-    ];
-
     return Container(
-      width: double.infinity,
-      color: AppColors.instance.orange,
-      padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: navIcons
-            .map(
-              (icon) => GestureDetector(
-            onTap: () {},
-            child: Image.asset(icon, width: 26.w, height: 26.h),
+      color: AppColors.instance.box,
+      padding: EdgeInsets.only(
+        top: MediaQuery.of(context).padding.top + 8.h,
+        left: 16.w,
+        right: 16.w,
+        bottom: 12.h,
+      ),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: GestureDetector(
+              onTap: () => Navigator.maybePop(context),
+              child:
+              Icon(Icons.chevron_left, size: 28.sp, color: AppColors.instance.black),
+            ),
           ),
-        )
-            .toList(),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 18.sp,
+              fontWeight: FontWeight.w600,
+              color: AppColors.instance.black,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class InputFieldm extends StatelessWidget {
+  final TextEditingController controller;
+  final String hintText;
+  final int maxLines;
+  final TextInputType keyboardType;
+  final bool obscureText;
+
+  const InputFieldm({
+    required this.controller,
+    required this.hintText,
+    this.maxLines = 1,
+    this.keyboardType = TextInputType.text,
+    this.obscureText = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      controller: controller,
+      maxLines: maxLines,
+      keyboardType: keyboardType,
+      obscureText: obscureText,
+      style: TextStyle(fontSize: 13.sp, color: AppColors.instance.black),
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: TextStyle(color: AppColors.instance.hintText, fontSize: 13.sp),
+        filled: true,
+        fillColor: AppColors.instance.boxcard,
+        contentPadding:
+        EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.r),
+          borderSide: BorderSide(color: AppColors.instance.border),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.r),
+          borderSide: BorderSide(color: AppColors.instance.border),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.r),
+          borderSide: BorderSide(color: AppColors.instance.orange, width: 1.5),
+        ),
+      ),
+    );
+  }
+}
+
+class PrimaryButtonm extends StatelessWidget {
+  final String label;
+  final VoidCallback onTap;
+
+  const PrimaryButtonm({required this.label, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: 48.h,
+      child: ElevatedButton(
+        onPressed: onTap,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.instance.green,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.r),
+          ),
+          elevation: 0,
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            fontSize: 15.sp,
+            fontWeight: FontWeight.w600,
+            color: AppColors.instance.white50,
+          ),
+        ),
       ),
     );
   }

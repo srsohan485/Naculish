@@ -3,6 +3,7 @@ import 'package:flutter/material.dart' hide AppBar;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naculis/Core/AppColor/app_color.dart';
 
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 import 'NotificationsWidget.dart';
 
 class NotificationPage extends StatelessWidget {
@@ -83,7 +84,7 @@ class NotificationPage extends StatelessWidget {
           ),
 
           // ── Bottom Nav
-          BottomNavBar(),
+          MainBottomNavBar(),
         ],
       ),
     );

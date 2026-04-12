@@ -7,6 +7,8 @@ import 'package:naculis/Core/AppColor/app_color.dart';
 import 'package:naculis/Core/AppImages/app_images.dart';
 import 'package:naculis/Features/AppUILightMode/ContactWidget/ReferFriendPage.dart';
 
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
+import '../../../Core/CustomTextField/CustomTextField.dart';
 import '../Auth/View/auth_widget.dart';
 import '../Notifications/NotificationsWidget.dart';
 import 'ContactWidget.dart' hide PrimaryButton, AppBar, BottomNavBar;
@@ -74,10 +76,9 @@ class _ContactUsPageState extends State<ContactUsPage> {
                   SizedBox(height: 6.h),
 
                   // Title field
-                  InputField(
+                  CustomTextField(
                     controller: _titleController,
                     hintText: 'Enter the title of your issue',
-                    maxLines: 1,
                   ),
                   SizedBox(height: 16.h),
 
@@ -93,10 +94,9 @@ class _ContactUsPageState extends State<ContactUsPage> {
                   SizedBox(height: 6.h),
 
                   // Message field
-                  InputField(
+                  CustomTextField(
                     controller: _messageController,
                     hintText: 'Write here...',
-                    maxLines: 6,
                   ),
                   SizedBox(height: 24.h),
 
@@ -111,7 +111,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
               ),
             ),
           ),
-          BottomNavBar(),
+          MainBottomNavBar(),
         ],
       ),
     );

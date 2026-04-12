@@ -19,7 +19,6 @@ class QuizResultScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            QuizTopStatsBar(),
             Expanded(
               child: SingleChildScrollView(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),

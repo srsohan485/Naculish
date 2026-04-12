@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naculis/Features/AppUILightMode/Quest/QuestWidget.dart';
 
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 
 class AutoTrackedQuestsScreen extends StatelessWidget {
   const AutoTrackedQuestsScreen({super.key});
@@ -48,7 +49,7 @@ class AutoTrackedQuestsScreen extends StatelessWidget {
                 ],
               ),
             ),
-            BottomNavBar(),
+            MainBottomNavBar(),
           ],
         ),
       ),

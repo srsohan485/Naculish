@@ -6,6 +6,7 @@ import 'package:naculis/Features/AppUILightMode/Speak/SpeakWidget.dart';
 
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/BottomNavBar/BottomNavBar.dart';
 import '../Home/HomeWidget.dart';
 
 class SpeakScreen extends StatelessWidget {
@@ -43,7 +44,7 @@ class SpeakScreen extends StatelessWidget {
                   ),
                 ),
                 HoldToSpeakBar(),
-                BottomNavBar(),
+                MainBottomNavBar(),
               ],
             ),
 
