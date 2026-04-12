@@ -34,3 +34,13 @@ class MainBottomNavBar extends StatelessWidget {
     );
   }
 }
+/*
+final List<Widget> pages = [
+      HomeMapScreen(),
+      SpeakScreen(),
+      LeaderboardScreen(),
+      QuestMenuScreen(),
+      ShopScreen(),
+      ProfileScreen(),
+    ];
+ */

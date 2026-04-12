@@ -10,6 +10,9 @@ import 'package:naculis/Features/AppUILightMode/Profile/ProfileDetailScreen.dart
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
 import '../../../Core/BottomNavBar/BottomNavBar.dart';
+import '../ContactWidget/ContactUsPage.dart';
+import '../MyBalance/BalancePage.dart';
+import '../Notifications/NotificationPage.dart';
 import 'ProfileWidget.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -70,10 +73,22 @@ class ProfileScreen extends StatelessWidget {
                     MenuTile(
                       icon: Icons.notifications_none,
                       label: AppStrings.notification,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => NotificationPage()),
+                        );
+                      },
                     ),
                     MenuTile(
                       icon: Icons.people_outline,
                       label: AppStrings.referFriend,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => ContactUsPage()),
+                        );
+                      },
                     ),
 
                     SizedBox(height: 6.h),
@@ -87,6 +102,12 @@ class ProfileScreen extends StatelessWidget {
                     MenuTile(
                       icon: Icons.account_balance_wallet_outlined,
                       label: AppStrings.myBalance,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => BalancePage()),
+                        );
+                      },
                     ),
 
                     SizedBox(height: 6.h),

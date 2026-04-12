@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         );
       },
       // ✅ Pass the first screen as child — NOT inside MaterialApp directly
-      child: const ShopScreen(),
+      child: const ProfileScreen(),
     );
   }
 }

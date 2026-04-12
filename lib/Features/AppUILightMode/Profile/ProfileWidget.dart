@@ -146,7 +146,7 @@ class FriendsCard extends StatelessWidget {
               color: AppColors.instance.subTextColor,
             ),
           ),
-          SizedBox(height: 8.h),
+          SizedBox(height: 12.h),
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
@@ -169,6 +169,7 @@ class FriendsCard extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(height: 18.h,)
         ],
       ),
     );

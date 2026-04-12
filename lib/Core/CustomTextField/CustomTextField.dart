@@ -27,7 +27,7 @@ class CustomTextField extends StatelessWidget {
     return Container(
       height: 50.h,
       decoration: BoxDecoration(
-        color: const Color(0xFFBDF0D5).withOpacity(0.3),
+        color: AppColors.instance.boxcard,
         borderRadius: BorderRadius.circular(10.r),
         border: Border.all(
           color: const Color(0xFFBDF0D5).withOpacity(0.5),
