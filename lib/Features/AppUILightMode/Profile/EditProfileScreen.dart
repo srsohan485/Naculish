@@ -155,7 +155,7 @@ class EditProfileScreen extends StatelessWidget {
                 ),
               ),
             ),
-            MainBottomNavBar(),
+
           ],
         ),
       ),

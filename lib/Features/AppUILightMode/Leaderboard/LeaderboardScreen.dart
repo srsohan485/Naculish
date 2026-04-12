@@ -57,7 +57,7 @@ class LeaderboardScreen extends StatelessWidget {
             ),
 
             // ── Bottom Nav
-            MainBottomNavBar(),
+
           ],
         ),
       ),

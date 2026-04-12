@@ -29,7 +29,7 @@ class QuizIntroYourselfScreen extends StatelessWidget {
                 child: QuizCard(questionNumber: 3),
               ),
             ),
-            BottomNavBar(),
+
           ],
         ),
       ),

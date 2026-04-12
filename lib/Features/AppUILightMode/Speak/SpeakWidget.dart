@@ -29,7 +29,9 @@ class EarnGemsDialog extends StatelessWidget {
           Align(
             alignment: Alignment.topRight,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+              },
               child: Icon(Icons.close,
                   size: 18.sp,
                   color: AppColors.instance.orange),

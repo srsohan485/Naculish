@@ -1,23 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'Features/AppUILightMode/Auth/View/forgot_password.dart';
-import 'Features/AppUILightMode/ContactWidget/ContactUsPage.dart';
-import 'Features/AppUILightMode/ContactWidget/ContactWidget.dart';
-import 'Features/AppUILightMode/CreateProfile/ProfileLanguage.dart';
-import 'Features/AppUILightMode/Home/HomeMapScreen.dart';
-import 'Features/AppUILightMode/Leaderboard/LeaderboardScreen.dart';
-import 'Features/AppUILightMode/MyBalance/BalancePage.dart';
-import 'Features/AppUILightMode/MyBalance/Balancewidget.dart';
-import 'Features/AppUILightMode/Notifications/NotificationPage.dart';
-import 'Features/AppUILightMode/Notifications/NotificationsWidget.dart';
-import 'Features/AppUILightMode/Profile/ProfileScreen.dart';
-import 'Features/AppUILightMode/Quest/QuestMenuScreen.dart';
-import 'Features/AppUILightMode/Shop/ShopScreen.dart';
-import 'Features/AppUILightMode/Shop/ShopWidget.dart';
-import 'Features/AppUILightMode/Shop/WithdhrawPayPal.dart';
-import 'Features/AppUILightMode/SingInSingUp/Singin_Page.dart';
-import 'Features/AppUILightMode/Speak/SpeakScreen.dart';
-import 'Features/AppUILightMode/Splash/splash_screen1.dart';
+import 'Core/BottomNavBar/MainScaffold.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +15,6 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      // ✅ builder ensures ScreenUtil is ready before ANY child widget builds
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -40,8 +22,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      // ✅ Pass the first screen as child — NOT inside MaterialApp directly
-      child: const ProfileScreen(),
+      child: const MainScaffold(),
     );
   }
 }

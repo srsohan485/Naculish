@@ -49,7 +49,7 @@ class AutoTrackedQuestsScreen extends StatelessWidget {
                 ],
               ),
             ),
-            MainBottomNavBar(),
+
           ],
         ),
       ),

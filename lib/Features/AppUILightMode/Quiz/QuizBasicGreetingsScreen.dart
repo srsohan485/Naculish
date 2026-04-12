@@ -30,7 +30,7 @@ class QuizBasicGreetingsScreen extends StatelessWidget {
                 child: QuizCard(questionNumber: 1),
               ),
             ),
-            BottomNavBar(),
+
           ],
         ),
       ),

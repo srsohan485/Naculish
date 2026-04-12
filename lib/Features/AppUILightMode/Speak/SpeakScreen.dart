@@ -44,7 +44,7 @@ class SpeakScreen extends StatelessWidget {
                   ),
                 ),
                 HoldToSpeakBar(),
-                MainBottomNavBar(),
+
               ],
             ),
 

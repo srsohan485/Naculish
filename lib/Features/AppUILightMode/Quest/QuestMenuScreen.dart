@@ -34,7 +34,12 @@ class QuestMenuScreen extends StatelessWidget {
                     QuestMenuButton(
                       label: AppStrings.lessonQuests,
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>LessonQuestsScreen()));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => LessonQuestsScreen(),
+                          ),
+                        );
                       },
                     ),
                     SizedBox(height: 16.h),
@@ -49,7 +54,7 @@ class QuestMenuScreen extends StatelessWidget {
                 ),
               ),
             ),
-            MainBottomNavBar(),
+
           ],
         ),
       ),

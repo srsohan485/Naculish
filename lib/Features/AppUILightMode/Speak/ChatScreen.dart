@@ -69,7 +69,7 @@ class ChatScreen extends StatelessWidget {
               ),
             ),
             HoldToSpeakBar(),
-            MainBottomNavBar(),
+
           ],
         ),
       ),

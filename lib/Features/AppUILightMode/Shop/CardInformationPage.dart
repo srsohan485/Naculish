@@ -148,7 +148,7 @@ class CardInformationPageState extends State<CardInformationPage> {
               ),
             ),
           ),
-          MainBottomNavBar(),
+
         ],
       ),
     );

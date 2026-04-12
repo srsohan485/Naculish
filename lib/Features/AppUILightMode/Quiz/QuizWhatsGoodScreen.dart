@@ -29,7 +29,7 @@ class QuizWhatsGoodScreen extends StatelessWidget {
                 child: QuizCard(questionNumber: 2),
               ),
             ),
-            BottomNavBar(),
+
           ],
         ),
       ),

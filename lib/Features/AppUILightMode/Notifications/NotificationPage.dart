@@ -84,7 +84,7 @@ class NotificationPage extends StatelessWidget {
           ),
 
           // ── Bottom Nav
-          MainBottomNavBar(),
+
         ],
       ),
     );

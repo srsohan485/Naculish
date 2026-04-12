@@ -53,7 +53,7 @@ class ProfileDetailScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                MainBottomNavBar(),
+
               ],
             ),
           ],

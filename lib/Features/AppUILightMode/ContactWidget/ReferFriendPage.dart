@@ -56,7 +56,7 @@ class ReferFriendPage extends StatelessWidget {
               ),
             ),
           ),
-          MainBottomNavBar(),
+
         ],
       ),
     );

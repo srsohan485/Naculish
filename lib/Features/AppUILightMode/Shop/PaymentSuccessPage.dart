@@ -71,7 +71,7 @@ class PaymentSuccessPage extends StatelessWidget {
               ),
             ),
           ),
-          MainBottomNavBar(),
+
         ],
       ),
     );

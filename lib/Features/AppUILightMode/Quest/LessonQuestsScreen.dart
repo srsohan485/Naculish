@@ -106,7 +106,7 @@ class LessonQuestsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            MainBottomNavBar(),
+
           ],
         ),
       ),

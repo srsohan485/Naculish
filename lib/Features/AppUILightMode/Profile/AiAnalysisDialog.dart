@@ -53,7 +53,7 @@ class Aianalysisdialog extends StatelessWidget {
                     ),
                   ),
                 ),
-                MainBottomNavBar(),
+
               ],
             ),
 

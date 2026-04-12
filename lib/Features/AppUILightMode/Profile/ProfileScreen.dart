@@ -127,7 +127,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
             ),
-            MainBottomNavBar(),
+
           ],
         ),
       ),

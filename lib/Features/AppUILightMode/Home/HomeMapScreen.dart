@@ -113,7 +113,7 @@ class HomeMapScreen extends StatelessWidget {
                 ),
               ),
             ),
-            MainBottomNavBar(),
+
           ],
         ),
       ),

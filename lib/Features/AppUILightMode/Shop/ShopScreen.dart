@@ -40,7 +40,7 @@ class ShopScreen extends StatelessWidget {
         ),
       ),
       // ── Bottom Navigation ──────────────────────────────────────────────────
-      bottomNavigationBar: MainBottomNavBar(),
+
     );
   }
 }

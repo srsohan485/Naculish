@@ -52,7 +52,7 @@ class Withdhrawpaypal extends StatelessWidget {
         ),
       ),
       // ── Bottom Navigation ──────────────────────────────────────────────────
-      bottomNavigationBar: MainBottomNavBar(),
+
     );
   }
 }

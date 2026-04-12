@@ -105,7 +105,7 @@ class SelectPaymentGatewayPageState extends State<SelectPaymentGatewayPage> {
               ),
             ),
           ),
-          MainBottomNavBar(),
+
         ],
       ),
     );

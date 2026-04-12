@@ -134,7 +134,7 @@ class QuizResultScreen extends StatelessWidget {
                 ),
               ),
             ),
-            BottomNavBar(),
+
           ],
         ),
       ),

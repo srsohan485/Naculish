@@ -96,7 +96,7 @@ class HomeLessonDetailScreen extends StatelessWidget {
                 },
               ),
             ),
-            MainBottomNavBar(),
+
           ],
         ),
       ),

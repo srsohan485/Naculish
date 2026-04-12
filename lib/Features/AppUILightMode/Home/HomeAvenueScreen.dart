@@ -95,7 +95,7 @@ class HomeAvenueScreen extends StatelessWidget {
                 },
               ),
             ),
-            MainBottomNavBar(),
+
           ],
         ),
       ),
