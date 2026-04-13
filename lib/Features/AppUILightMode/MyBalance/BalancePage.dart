@@ -135,7 +135,7 @@ class _BalancePageState extends State<BalancePage> {
               ),
             ),
           ),
-          BottomNavBar(),
+
         ],
       ),
     );

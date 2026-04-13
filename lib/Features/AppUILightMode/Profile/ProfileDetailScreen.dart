@@ -1,30 +1,26 @@
-
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
-import '../../../Core/BottomNavBar/BottomNavBar.dart';
-import '../Home/HomeWidget.dart';
-import 'ProfileWidget.dart' hide BottomNavBar;
+import '../../../Core/Theme/app_theme_colors.dart';
+import 'ProfileWidget.dart';
 
 class ProfileDetailScreen extends StatelessWidget {
   const ProfileDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // ✅ hardcode সরানো
+    final colors = context.appColors;
+
     return Scaffold(
-      backgroundColor: const Color(0xFFF5DEB3),
+      backgroundColor: colors.background,
       body: SafeArea(
         child: Stack(
           children: [
             Column(
               children: [
-                ProfileAppBar(
-                    title: AppStrings.profile, showEdit: true),
+                ProfileAppBar(title: AppStrings.profile, showEdit: true),
                 Expanded(
                   child: SingleChildScrollView(
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -37,23 +33,16 @@ class ProfileDetailScreen extends StatelessWidget {
                           showEditIcon: false,
                         ),
                         SizedBox(height: 20.h),
-                        InfoTile(
-                            label: AppStrings.phone,
-                            value: '+44 234 563 45'),
+                        InfoTile(label: AppStrings.phone, value: '+44 234 563 45'),
                         SizedBox(height: 10.h),
-                        InfoTile(
-                            label: AppStrings.birthday,
-                            value: '12/05/1996'),
+                        InfoTile(label: AppStrings.birthday, value: '12/05/1996'),
                         SizedBox(height: 10.h),
-                        InfoTile(
-                            label: AppStrings.country,
-                            value: 'United Kingdom'),
+                        InfoTile(label: AppStrings.country, value: 'United Kingdom'),
                         SizedBox(height: 20.h),
                       ],
                     ),
                   ),
                 ),
-
               ],
             ),
           ],

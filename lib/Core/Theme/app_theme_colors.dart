@@ -14,8 +14,8 @@ class AppThemeColors extends ThemeExtension<AppThemeColors> {
   final Color hintText;
   final Color primaryBtn;       // green button
   final Color primaryBtnText;
-  final Color accentOrange;     // orange accent #FE7400
-  final Color accentOrangeBox;  // box bg #FFECCB
+  final Color accentOrange;     // orange accent #F49000
+  final Color accentOrangeBox;  // box bg
   final Color boxBg;
   final Color border;
   final Color stroke;
@@ -49,50 +49,50 @@ class AppThemeColors extends ThemeExtension<AppThemeColors> {
 
   // ✅ Light Theme Colors — Figma light screens থেকে
   static const light = AppThemeColors(
-    background: Color(0xFFF5DEB3),        // cream/wheat bg
-    card: Color(0xFFFFFFFF),
-    cardBackground: Color(0xFFF5F5F5),
-    appBarBackground: Color(0xFFFFFFFF),
-    bottomNavBackground: Color(0xFFF49000),  // orange bottom nav
-    titleText: Color(0xFF00193F),
-    normalText: Color(0xFF0F172A),
-    subText: Color(0xFF757575),
-    hintText: Color(0xFF818181),
-    primaryBtn: Color(0xFF12B76A),           // green button
+    background: Color(0xFFF5F5F5),        // হালকা off-white page background
+    card: Color(0xFFFFFFFF),              // সাদা card
+    cardBackground: Color(0xFFFFFFFF),    // সাদা card background
+    appBarBackground: Color(0xFFF49000),  // orange AppBar (Figma থেকে)
+    bottomNavBackground: Color(0xFFF49000), // orange bottom nav
+    titleText: Color(0xFF1A1A1A),          // AppBar title সাদা (orange bg এ)
+    normalText: Color(0xFF1A1A1A),        // body text কালো
+    subText: Color(0xFF757575),           // secondary text ধূসর
+    hintText: Color(0xFFAAAAAA),          // input hint ধূসর
+    primaryBtn: Color(0xFF4CAF50),        // সবুজ button
     primaryBtnText: Color(0xFFFFFFFF),
-    accentOrange: Color(0xFFFE7400),
-    accentOrangeBox: Color(0xFFFFECCB),
-    boxBg: Color(0xFFEBF4FF),
-    border: Color(0xFFDBDBDB),
-    stroke: Color(0xFF939393),
-    success: Color(0xFF11D279),
+    accentOrange: Color(0xFFF49000),      // orange accent
+    accentOrangeBox: Color(0xFFFFF3E0),   // হালকা orange box bg
+    boxBg: Color(0xFFEBF4FF),            // হালকা নীল box bg
+    border: Color(0xFFE0E0E0),           // হালকা border
+    stroke: Color(0xFFBDBDBD),
+    success: Color(0xFF4CAF50),
     error: Color(0xFFFF0000),
     star: Color(0xFFFFD100),
-    inputFill: Color(0xFFFFFFFF),
+    inputFill: Color(0xFFFFFFFF),        // input background সাদা
   );
 
   // ✅ Dark Theme Colors — Figma dark screens থেকে
   static const dark = AppThemeColors(
-    background: Color(0xFF2D2D2D),          // dark bg
-    card: Color(0xFF1A1A1A),
-    cardBackground: Color(0xFF222222),
-    appBarBackground: Color(0xFF1A1A1A),
-    bottomNavBackground: Color(0xFFF49000),  // orange (same)
-    titleText: Color(0xFFFFFFFF),
-    normalText: Color(0xFFEEEEEE),
-    subText: Color(0xFFB0B0B0),
-    hintText: Color(0xFF818181),
-    primaryBtn: Color(0xFF12B76A),
+    background: Color(0xFF1E1E1E),        // dark charcoal background
+    card: Color(0xFF2C2C2C),             // card — background এর চেয়ে হালকা
+    cardBackground: Color(0xFF2C2C2C),
+    appBarBackground: Color(0xFF1A1A1A), // dark AppBar
+    bottomNavBackground: Color(0xFFF49000), // orange (একই থাকে)
+    titleText: Color(0xFFFFFFFF),         // সাদা title
+    normalText: Color(0xFFEEEEEE),        // হালকা সাদা body text
+    subText: Color(0xFFAAAAAA),           // muted grey
+    hintText: Color(0xFF757575),
+    primaryBtn: Color(0xFF4CAF50),        // সবুজ button (একই)
     primaryBtnText: Color(0xFFFFFFFF),
-    accentOrange: Color(0xFFFE7400),
-    accentOrangeBox: Color(0xFF3D2800),
-    boxBg: Color(0xFF1F1F1F),
-    border: Color(0xFF444444),
-    stroke: Color(0xFF555555),
-    success: Color(0xFF11D279),
+    accentOrange: Color(0xFFF49000),      // orange accent (একই)
+    accentOrangeBox: Color(0xFF3D2800),   // dark orange box bg
+    boxBg: Color(0xFF252525),
+    border: Color(0xFF3A3A3A),
+    stroke: Color(0xFF4A4A4A),
+    success: Color(0xFF4CAF50),
     error: Color(0xFFFF4444),
     star: Color(0xFFFFD100),
-    inputFill: Color(0xFF333333),
+    inputFill: Color(0xFF2C2C2C),        // dark input fill
   );
 
   @override

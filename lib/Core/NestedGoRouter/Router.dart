@@ -1,8 +1,6 @@
 // lib/Core/Router/app_router.dart
 
 import 'package:go_router/go_router.dart';
-import 'package:flutter/material.dart';
-import '../../Features/AppUILightMode/Home/HomeAvenueScreen.dart';
 import '../../Features/AppUILightMode/Home/HomeMapScreen.dart';
 import '../../Features/AppUILightMode/Leaderboard/LeaderboardScreen.dart';
 import '../../Features/AppUILightMode/Profile/ProfileScreen.dart';

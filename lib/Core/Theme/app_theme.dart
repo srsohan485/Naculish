@@ -15,15 +15,17 @@ class AppTheme {
       extensions: const [colors],
 
       appBarTheme: AppBarTheme(
-        backgroundColor: colors.appBarBackground,
-        foregroundColor: colors.titleText,
+        backgroundColor: colors.appBarBackground,   // orange
+        foregroundColor: Colors.white,               // icons & back arrow সাদা
+        iconTheme: const IconThemeData(color: Colors.white),
+        actionsIconTheme: const IconThemeData(color: Colors.white),
         elevation: 0,
         centerTitle: true,
-        titleTextStyle: TextStyle(
+        titleTextStyle: const TextStyle(
           fontFamily: 'Poppins',
           fontSize: 16,
           fontWeight: FontWeight.w600,
-          color: colors.titleText,
+          color: Colors.white,                       // title সাদা
         ),
       ),
 
@@ -74,12 +76,12 @@ class AppTheme {
 
       textTheme: TextTheme(
         headlineLarge: TextStyle(
-          color: colors.titleText,
+          color: colors.normalText,
           fontWeight: FontWeight.w700,
           fontSize: 22,
         ),
         headlineMedium: TextStyle(
-          color: colors.titleText,
+          color: colors.normalText,
           fontWeight: FontWeight.w600,
           fontSize: 18,
         ),
@@ -98,6 +100,11 @@ class AppTheme {
       ),
 
       dividerColor: colors.border,
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: colors.bottomNavBackground,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
+      ),
     );
   }
 
@@ -112,15 +119,17 @@ class AppTheme {
       extensions: const [colors],
 
       appBarTheme: AppBarTheme(
-        backgroundColor: colors.appBarBackground,
-        foregroundColor: colors.titleText,
+        backgroundColor: colors.appBarBackground,   // dark
+        foregroundColor: Colors.white,
+        iconTheme: const IconThemeData(color: Colors.white),
+        actionsIconTheme: const IconThemeData(color: Colors.white),
         elevation: 0,
         centerTitle: true,
-        titleTextStyle: TextStyle(
+        titleTextStyle: const TextStyle(
           fontFamily: 'Poppins',
           fontSize: 16,
           fontWeight: FontWeight.w600,
-          color: colors.titleText,
+          color: Colors.white,
         ),
       ),
 
@@ -195,6 +204,11 @@ class AppTheme {
       ),
 
       dividerColor: colors.border,
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: colors.bottomNavBackground,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
+      ),
     );
   }
 }
