@@ -1,47 +1,28 @@
 import 'package:flutter/material.dart';
-
-
-import '../../Features/AppUILightMode/Home/HomeMapScreen.dart';
-import '../../Features/AppUILightMode/Leaderboard/LeaderboardScreen.dart';
-import '../../Features/AppUILightMode/Profile/ProfileScreen.dart';
-import '../../Features/AppUILightMode/Quest/QuestMenuScreen.dart';
-import '../../Features/AppUILightMode/Shop/ShopScreen.dart';
-import '../../Features/AppUILightMode/Speak/SpeakScreen.dart';
+import 'package:go_router/go_router.dart';
 import 'BottomNavBar.dart';
 
-class MainScaffold extends StatefulWidget {
-  const MainScaffold({super.key});
 
-  @override
-  State<MainScaffold> createState() => _MainScaffoldState();
-}
+class MainScaffold extends StatelessWidget {
+  final StatefulNavigationShell navigationShell;
 
-class _MainScaffoldState extends State<MainScaffold> {
-  int _selectedIndex = 0;
-
-  final List<Widget> _pages = [
-    HomeMapScreen(),
-    SpeakScreen(),
-    LeaderboardScreen(),
-    QuestMenuScreen(),
-    ShopScreen(),
-    ProfileScreen(),
-  ];
+  const MainScaffold({
+    super.key,
+    required this.navigationShell,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: _pages,
-      ),
-     bottomNavigationBar: MainBottomNavBar(
-        selectedIndex: _selectedIndex,
-         onTap: (index) {
-           setState(() {
-             _selectedIndex = index;
-           });
-         },
+      body: navigationShell,
+      bottomNavigationBar: MainBottomNavBar(
+        selectedIndex: navigationShell.currentIndex,
+        onTap: (index) {
+          navigationShell.goBranch(
+            index,
+            initialLocation: index == navigationShell.currentIndex,
+          );
+        },
       ),
     );
   }
