@@ -113,12 +113,12 @@ class NotifCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: isDiscount
                   ? AppColors.instance.orange.withOpacity(0.12)
-                  : AppColors.instance.green50.withOpacity(0.12),
+                  : AppColors.instance.green.withOpacity(0.12),
               shape: BoxShape.circle,
             ),
             child: Icon(
               isDiscount ? Icons.notifications_outlined : Icons.check_circle,
-              color: isDiscount ? AppColors.instance.orange : AppColors.instance.green50,
+              color: isDiscount ? AppColors.instance.orange : AppColors.instance.green,
               size: 20.sp,
             ),
           ),

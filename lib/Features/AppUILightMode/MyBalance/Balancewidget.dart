@@ -143,7 +143,7 @@ class TransactionCard extends StatelessWidget{
   Color get _statusColor {
     switch (transaction.status) {
       case TransactionStatus.completed:
-        return AppColors.instance.green50;
+        return AppColors.instance.green;
       case TransactionStatus.pending:
         return AppColors.instance.orange;
       case TransactionStatus.rejected:

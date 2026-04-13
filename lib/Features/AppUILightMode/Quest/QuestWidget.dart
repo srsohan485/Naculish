@@ -102,7 +102,7 @@ class QuestCard extends StatelessWidget {
                   vertical: 3.h,
                 ),
                 decoration: BoxDecoration(
-                  color: AppColors.instance.green300,
+                  color: AppColors.instance.green500,
                   borderRadius: BorderRadius.circular(20.r),
                 ),
                 child: Text(
@@ -303,7 +303,7 @@ class QuestDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Divider(
-      color: AppColors.instance.green300,
+      color: AppColors.instance.green500,
       thickness: 1,
       height: 1,
     );

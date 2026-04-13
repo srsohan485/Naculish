@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naculis/Features/AppUILightMode/Profile/AiAnalysisDialog.dart';
 import 'package:naculis/Features/AppUILightMode/Profile/ProfileDetailScreen.dart';
+import 'package:provider/provider.dart';
 
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/Theme/app_theme_colors.dart';
+import '../../../Core/Theme/theme_notifier.dart';
 import 'EditProfileScreen.dart';
 
 
@@ -670,32 +673,48 @@ class MenuTile extends StatelessWidget {
 
 class ToggleTile extends StatelessWidget {
   final String label;
-  const ToggleTile({required this.label});
+  const ToggleTile({super.key, required this.label});
 
   @override
   Widget build(BuildContext context) {
+    // ✅ ThemeNotifier এবং appColors access করুন
+    final notifier = context.watch<ThemeNotifier>();
+    final colors = context.appColors;
+
+    // ✅ Dark Mode tile এর জন্য current value নির্ধারণ করুন
+    final bool switchValue = label == AppStrings.darkMode
+        ? notifier.isDark
+        : false; // Voiceover এর জন্য পরে আলাদা state লাগবে
+
     return ListTile(
       dense: true,
-      contentPadding:
-      EdgeInsets.symmetric(horizontal: 8.w, vertical: 0),
+      contentPadding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 0),
       leading: Icon(
         label == AppStrings.darkMode
             ? Icons.dark_mode_outlined
             : Icons.record_voice_over_outlined,
         size: 20.sp,
-        color: AppColors.instance.titleTextColor,
+        color: colors.titleText,
       ),
       title: Text(
         label,
         style: TextStyle(
           fontSize: 13.sp,
-          color: AppColors.instance.titleTextColor,
+          color: colors.titleText, // ✅ hardcode সরানো হয়েছে
         ),
       ),
       trailing: Switch(
-        value: false,
-        onChanged: (_) {},
-        activeColor: AppColors.instance.loginBtnColor,
+        value: switchValue, // ✅ actual state
+        onChanged: (val) {
+          if (label == AppStrings.darkMode) {
+            notifier.toggle(); // ✅ dark/light switch হবে
+          }
+          // Voiceover এর জন্য পরে আলাদা notifier বানাতে পারবেন
+        },
+        activeColor: colors.primaryBtn,      // ✅ green active color
+        activeTrackColor: colors.accentOrangeBox,
+        inactiveThumbColor: colors.stroke,
+        inactiveTrackColor: colors.border,
       ),
     );
   }

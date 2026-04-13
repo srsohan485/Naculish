@@ -33,7 +33,7 @@ class ShopScreen extends StatelessWidget {
               SizedBox(height: 14.h),
 
               // ── Premium Subscription card ──────────────────────────────────
-              PremiumSubscriptionCard(),
+              // PremiumSubscriptionCard(),
               SizedBox(height: 24.h),
             ],
           ),

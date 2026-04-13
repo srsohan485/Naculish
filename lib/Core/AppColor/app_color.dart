@@ -123,10 +123,4 @@ class AppColors {
   final Color boxcard = const Color(0xFFC2E4B0);
   final Color green = const Color(0xFF36BA17);
 
-
-
-
-
-
-
 }

@@ -74,7 +74,7 @@ class LessonQuestsScreen extends StatelessWidget {
 
                       // Divider line
                       Divider(
-                        color: AppColors.instance.green300,
+                        color: AppColors.instance.green500,
                         thickness: 1,
                       ),
 
