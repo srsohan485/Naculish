@@ -1,20 +1,19 @@
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naculis/Features/AppUILightMode/Quest/QuestWidget.dart';
 
 import '../../../Core/AppText/app_text.dart';
-import '../../../Core/BottomNavBar/BottomNavBar.dart';
+import '../../../Core/Theme/app_theme_colors.dart';
 
 class AutoTrackedQuestsScreen extends StatelessWidget {
   const AutoTrackedQuestsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Scaffold(
-      backgroundColor: const Color(0xFFF5DEB3),
+      backgroundColor: colors.background, // ✅
       body: SafeArea(
         child: Column(
           children: [
@@ -22,10 +21,8 @@ class AutoTrackedQuestsScreen extends StatelessWidget {
             QuestHeader(title: AppStrings.autoTrackedQuests),
             Expanded(
               child: ListView(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 16.w,
-                  vertical: 14.h,
-                ),
+                padding:
+                EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
                 children: [
                   QuestCard(
                     badge: AppStrings.basic,
@@ -49,7 +46,6 @@ class AutoTrackedQuestsScreen extends StatelessWidget {
                 ],
               ),
             ),
-
           ],
         ),
       ),

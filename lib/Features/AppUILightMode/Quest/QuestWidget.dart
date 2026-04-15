@@ -1,36 +1,30 @@
-// ─── SCREEN 1: QUEST MENU ─────────────────────────────────────────────────────
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/Theme/app_theme_colors.dart';
 
-
-
+// ── Model ─────────────────────────────────────────────────────────────────────
+enum NotifType { discount, success }
 
 class QuestMenuButton extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
 
-  const QuestMenuButton({
-    required this.label,
-    required this.onTap,
-  });
+  const QuestMenuButton({required this.label, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(
-          vertical: 22.h,
-          horizontal: 16.w,
-        ),
+        padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 16.w),
         decoration: BoxDecoration(
-          color: AppColors.instance.orange,
+          color: colors.accentOrange, // ✅
           borderRadius: BorderRadius.circular(14.r),
         ),
         child: Column(
@@ -53,7 +47,7 @@ class QuestMenuButton extends StatelessWidget {
   }
 }
 
-
+// ── Quest Card ────────────────────────────────────────────────────────────────
 class QuestCard extends StatelessWidget {
   final String badge;
   final String reward;
@@ -75,11 +69,13 @@ class QuestCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Container(
       width: double.infinity,
       padding: EdgeInsets.all(14.w),
       decoration: BoxDecoration(
-        color: AppColors.instance.green100,
+        color: colors.card, // ✅
         borderRadius: BorderRadius.circular(14.r),
         boxShadow: [
           BoxShadow(
@@ -92,17 +88,13 @@ class QuestCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Top row: Basic badge + reward
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10.w,
-                  vertical: 3.h,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 3.h),
                 decoration: BoxDecoration(
-                  color: AppColors.instance.green500,
+                  color: colors.success.withOpacity(0.2), // ✅
                   borderRadius: BorderRadius.circular(20.r),
                 ),
                 child: Text(
@@ -110,7 +102,7 @@ class QuestCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 11.sp,
                     fontWeight: FontWeight.w600,
-                    color: AppColors.instance.titleTextColor,
+                    color: colors.normalText, // ✅
                   ),
                 ),
               ),
@@ -119,44 +111,32 @@ class QuestCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 11.sp,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.instance.titleTextColor,
+                  color: colors.normalText, // ✅
                 ),
               ),
             ],
           ),
-
           SizedBox(height: 10.h),
-
-          // Quest title
           Center(
             child: Text(
               title,
               style: TextStyle(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w900,
-                color: AppColors.instance.titleTextColor,
+                color: colors.normalText, // ✅
               ),
               textAlign: TextAlign.center,
             ),
           ),
-
           SizedBox(height: 4.h),
-
-          // Quest task description
           Center(
             child: Text(
               task,
-              style: TextStyle(
-                fontSize: 11.sp,
-                color: AppColors.instance.subTextColor,
-              ),
+              style: TextStyle(fontSize: 11.sp, color: colors.subText), // ✅
               textAlign: TextAlign.center,
             ),
           ),
-
           SizedBox(height: 12.h),
-
-          // Progress bar row
           Row(
             children: [
               Expanded(
@@ -166,20 +146,12 @@ class QuestCard extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          progress,
-                          style: TextStyle(
-                            fontSize: 10.sp,
-                            color: AppColors.instance.subTextColor,
-                          ),
-                        ),
-                        Text(
-                          percent,
-                          style: TextStyle(
-                            fontSize: 10.sp,
-                            color: AppColors.instance.subTextColor,
-                          ),
-                        ),
+                        Text(progress,
+                            style: TextStyle(
+                                fontSize: 10.sp, color: colors.subText)), // ✅
+                        Text(percent,
+                            style: TextStyle(
+                                fontSize: 10.sp, color: colors.subText)), // ✅
                       ],
                     ),
                     SizedBox(height: 4.h),
@@ -188,10 +160,9 @@ class QuestCard extends StatelessWidget {
                       child: LinearProgressIndicator(
                         value: progressValue,
                         minHeight: 7.h,
-                        backgroundColor: AppColors.instance.white500,
+                        backgroundColor: colors.border, // ✅
                         valueColor: AlwaysStoppedAnimation<Color>(
-                          AppColors.instance.orange,
-                        ),
+                            colors.accentOrange), // ✅
                       ),
                     ),
                   ],
@@ -205,17 +176,18 @@ class QuestCard extends StatelessWidget {
   }
 }
 
-// ─── SHARED: QUEST HEADER ─────────────────────────────────────────────────────
-
+// ── Quest Header ──────────────────────────────────────────────────────────────
 class QuestHeader extends StatelessWidget {
   final String title;
   const QuestHeader({required this.title});
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Container(
       width: double.infinity,
-      color: AppColors.instance.loginBtnColor,
+      color: colors.primaryBtn, // ✅
       padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 16.w),
       child: Column(
         children: [
@@ -233,10 +205,7 @@ class QuestHeader extends StatelessWidget {
           SizedBox(height: 4.h),
           Text(
             AppStrings.questDescription,
-            style: TextStyle(
-              fontSize: 11.sp,
-              color: Colors.white70,
-            ),
+            style: TextStyle(fontSize: 11.sp, color: Colors.white70),
             textAlign: TextAlign.center,
           ),
         ],
@@ -245,8 +214,7 @@ class QuestHeader extends StatelessWidget {
   }
 }
 
-// ─── SHARED: QUEST STAT ROW ───────────────────────────────────────────────────
-
+// ── Quest Stat Row ────────────────────────────────────────────────────────────
 class QuestStatRow extends StatelessWidget {
   final String icon;
   final Color iconColor;
@@ -266,6 +234,8 @@ class QuestStatRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10.h),
       child: Row(
@@ -277,9 +247,8 @@ class QuestStatRow extends StatelessWidget {
               label,
               style: TextStyle(
                 fontSize: 14.sp,
-                fontWeight:
-                isBold ? FontWeight.w700 : FontWeight.normal,
-                color: AppColors.instance.titleTextColor,
+                fontWeight: isBold ? FontWeight.w700 : FontWeight.normal,
+                color: colors.normalText, // ✅
               ),
             ),
           ),
@@ -288,7 +257,7 @@ class QuestStatRow extends StatelessWidget {
             style: TextStyle(
               fontSize: valueFontSize,
               fontWeight: FontWeight.w900,
-              color: AppColors.instance.titleTextColor,
+              color: colors.normalText, // ✅
             ),
           ),
         ],
@@ -297,31 +266,30 @@ class QuestStatRow extends StatelessWidget {
   }
 }
 
-// ─── SHARED: QUEST DIVIDER ────────────────────────────────────────────────────
-
+// ── Quest Divider ─────────────────────────────────────────────────────────────
 class QuestDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Divider(
-      color: AppColors.instance.green500,
+      color: colors.border, // ✅
       thickness: 1,
       height: 1,
     );
   }
 }
 
-// ─── SHARED: TOP STATS BAR ────────────────────────────────────────────────────
-
+// ── Top Stats Bar ─────────────────────────────────────────────────────────────
 class TopStatsBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Container(
       width: double.infinity,
-      color: AppColors.instance.orange,
-      padding: EdgeInsets.symmetric(
-        horizontal: 16.w,
-        vertical: 10.h,
-      ),
+      color: colors.accentOrange, // ✅
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -359,11 +327,12 @@ class StatChip extends StatelessWidget {
   }
 }
 
-// ─── SHARED: BOTTOM NAV BAR ───────────────────────────────────────────────────
-
+// ── Bottom Nav Bar ────────────────────────────────────────────────────────────
 class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     final List<String> navIcons = [
       AppImages.Icon1,
       AppImages.Icon2,
@@ -375,24 +344,15 @@ class BottomNavBar extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      color: AppColors.instance.orange,
-      padding: EdgeInsets.symmetric(
-        vertical: 10.h,
-        horizontal: 10.w,
-      ),
+      color: colors.bottomNavBackground, // ✅
+      padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: navIcons
-            .map(
-              (icon) => GestureDetector(
-            onTap: () {},
-            child: Image.asset(
-              icon,
-              width: 26.w,
-              height: 26.h,
-            ),
-          ),
-        )
+            .map((icon) => GestureDetector(
+          onTap: () {},
+          child: Image.asset(icon, width: 26.w, height: 26.h),
+        ))
             .toList(),
       ),
     );
