@@ -10,7 +10,6 @@ class Aianalysisdialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ✅ hardcode সরানো
     final colors = context.appColors;
 
     return Scaffold(

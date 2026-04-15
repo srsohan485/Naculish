@@ -20,18 +20,21 @@ class HomeAvenueScreen extends StatelessWidget {
         'lessons': AppStrings.Lessons,
         'completed': AppStrings.Completed,
         'progress': 1.0,
+        'routePath': '/home/lesson-detail',  // ✅ এটা add করুন
       },
       {
         'title': AppStrings.VibeCheck,
         'lessons': AppStrings.Lessons,
         'completed': '3 Completed',
         'progress': 0.5,
+        'routePath': '/home/lesson-detail',  // ✅ এটা add করুন
       },
       {
         'title': AppStrings.Survival,
         'lessons': AppStrings.Lessons,
         'completed': '2 Completed',
         'progress': 0.33,
+        'routePath': '/home/lesson-detail',  // ✅ এটা add করুন
       },
     ];
 
@@ -91,6 +94,7 @@ class HomeAvenueScreen extends StatelessWidget {
                     lessonsText: item['lessons'] as String,
                     completedText: item['completed'] as String,
                     progress: item['progress'] as double,
+                    routePath: item['routePath'] as String,
                   );
                 },
               ),

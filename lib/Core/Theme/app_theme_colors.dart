@@ -131,28 +131,29 @@ class AppThemeColors extends ThemeExtension<AppThemeColors> {
 
   @override
   AppThemeColors lerp(AppThemeColors? other, double t) {
-    if (other is! AppThemeColors) return this;
+    if (other == null) return this;
+
     return AppThemeColors(
-      background: Color.lerp(background, other.background, t)!,
-      card: Color.lerp(card, other.card, t)!,
-      cardBackground: Color.lerp(cardBackground, other.cardBackground, t)!,
-      appBarBackground: Color.lerp(appBarBackground, other.appBarBackground, t)!,
-      bottomNavBackground: Color.lerp(bottomNavBackground, other.bottomNavBackground, t)!,
-      titleText: Color.lerp(titleText, other.titleText, t)!,
-      normalText: Color.lerp(normalText, other.normalText, t)!,
-      subText: Color.lerp(subText, other.subText, t)!,
-      hintText: Color.lerp(hintText, other.hintText, t)!,
-      primaryBtn: Color.lerp(primaryBtn, other.primaryBtn, t)!,
-      primaryBtnText: Color.lerp(primaryBtnText, other.primaryBtnText, t)!,
-      accentOrange: Color.lerp(accentOrange, other.accentOrange, t)!,
-      accentOrangeBox: Color.lerp(accentOrangeBox, other.accentOrangeBox, t)!,
-      boxBg: Color.lerp(boxBg, other.boxBg, t)!,
-      border: Color.lerp(border, other.border, t)!,
-      stroke: Color.lerp(stroke, other.stroke, t)!,
-      success: Color.lerp(success, other.success, t)!,
-      error: Color.lerp(error, other.error, t)!,
-      star: Color.lerp(star, other.star, t)!,
-      inputFill: Color.lerp(inputFill, other.inputFill, t)!,
+      background: Color.lerp(background, other.background, t) ?? background,
+      card: Color.lerp(card, other.card, t) ?? card,
+      cardBackground: Color.lerp(cardBackground, other.cardBackground, t) ?? cardBackground,
+      appBarBackground: Color.lerp(appBarBackground, other.appBarBackground, t) ?? appBarBackground,
+      bottomNavBackground: Color.lerp(bottomNavBackground, other.bottomNavBackground, t) ?? bottomNavBackground,
+      titleText: Color.lerp(titleText, other.titleText, t) ?? titleText,
+      normalText: Color.lerp(normalText, other.normalText, t) ?? normalText,
+      subText: Color.lerp(subText, other.subText, t) ?? subText,
+      hintText: Color.lerp(hintText, other.hintText, t) ?? hintText,
+      primaryBtn: Color.lerp(primaryBtn, other.primaryBtn, t) ?? primaryBtn,
+      primaryBtnText: Color.lerp(primaryBtnText, other.primaryBtnText, t) ?? primaryBtnText,
+      accentOrange: Color.lerp(accentOrange, other.accentOrange, t) ?? accentOrange,
+      accentOrangeBox: Color.lerp(accentOrangeBox, other.accentOrangeBox, t) ?? accentOrangeBox,
+      boxBg: Color.lerp(boxBg, other.boxBg, t) ?? boxBg,
+      border: Color.lerp(border, other.border, t) ?? border,
+      stroke: Color.lerp(stroke, other.stroke, t) ?? stroke,
+      success: Color.lerp(success, other.success, t) ?? success,
+      error: Color.lerp(error, other.error, t) ?? error,
+      star: Color.lerp(star, other.star, t) ?? star,
+      inputFill: Color.lerp(inputFill, other.inputFill, t) ?? inputFill,
     );
   }
 }

@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/BottomNavBar/BottomNavBar.dart';
@@ -81,14 +82,11 @@ class HomeMapScreen extends StatelessWidget {
                       Positioned(
                         top: 200.h,
                         left: 140.w,
-                        child: GestureDetector(
+                        child: InkWell(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => HomeAvenueScreen(),
-                              ),
-                            );
+                            WidgetsBinding.instance.addPostFrameCallback((_) {
+                              context.push('/home/avenue');
+                            });
                           },
                           child: Image.asset(
                             AppImages.diration,

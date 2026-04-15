@@ -27,10 +27,9 @@ class QuizBasicGreetingsScreen extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: QuizCard(questionNumber: 1),
+                child: QuizCard(questionNumber: 1,),
               ),
             ),
-
           ],
         ),
       ),

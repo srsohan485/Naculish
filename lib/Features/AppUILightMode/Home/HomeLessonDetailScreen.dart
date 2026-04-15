@@ -1,16 +1,9 @@
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:naculis/Features/AppUILightMode/Quiz/QuizIntroYourselfScreen.dart';
-import 'package:naculis/Features/AppUILightMode/Quiz/QuizWhatsGoodScreen.dart';
 
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/AppText/app_text.dart';
-import '../../../Core/BottomNavBar/BottomNavBar.dart';
-import '../Quiz/QuizBasicGreetingsScreen.dart';
 import 'HomeWidget.dart';
 
 class HomeLessonDetailScreen extends StatelessWidget {
@@ -24,21 +17,21 @@ class HomeLessonDetailScreen extends StatelessWidget {
         'title': AppStrings.BasicGreetings,
         'sub': AppStrings.Vocabulary,
         'unlocked': true,
-        'page': QuizBasicGreetingsScreen(), // 👈 add this
+        'routePath': '/home/lesson-detail/basic-greetings',
       },
       {
         'icon': AppImages.Icon2,
         'title': AppStrings.WhatGood,
         'sub': AppStrings.Listening,
         'unlocked': true,
-        'page': QuizWhatsGoodScreen(),
+        'routePath': '/home/lesson-detail/whats-good',
       },
       {
         'icon': AppImages.Icon3,
         'title': AppStrings.IntroYourself,
         'sub': AppStrings.Pronunciation,
         'unlocked': false,
-        'page': QuizIntroYourselfScreen(),
+        'routePath': '/home/lesson-detail/intro-yourself',
       },
     ];
 
@@ -49,12 +42,10 @@ class HomeLessonDetailScreen extends StatelessWidget {
           children: [
             TopStatsBar(),
             SizedBox(height: 8.h),
-            // Header
             Container(
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 16.w),
-              padding:
-              EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
               decoration: BoxDecoration(
                 color: AppColors.instance.loginBtnColor,
                 borderRadius: BorderRadius.circular(14.r),
@@ -72,8 +63,7 @@ class HomeLessonDetailScreen extends StatelessWidget {
                   SizedBox(height: 2.h),
                   Text(
                     AppStrings.FistAvenue,
-                    style: TextStyle(
-                        fontSize: 12.sp, color: Colors.white70),
+                    style: TextStyle(fontSize: 12.sp, color: Colors.white70),
                   ),
                 ],
               ),
@@ -86,17 +76,18 @@ class HomeLessonDetailScreen extends StatelessWidget {
                 separatorBuilder: (_, __) => SizedBox(height: 10.h),
                 itemBuilder: (context, index) {
                   final item = lessonItems[index];
-                  return LessonDetailTile(
-                    iconPath: item['icon'] as String,
-                    title: item['title'] as String,
-                    subtitle: item['sub'] as String,
-                    isUnlocked: item['unlocked'] as bool,
-                    destination: item['page'] as Widget,
+                  return IntrinsicHeight(   // ✅ এটা add করুন
+                    child: LessonDetailTile(
+                      iconPath: item['icon'] as String,
+                      title: item['title'] as String,
+                      subtitle: item['sub'] as String,
+                      isUnlocked: item['unlocked'] as bool,
+                      routePath: item['routePath'] as String?,
+                    ),
                   );
                 },
               ),
             ),
-
           ],
         ),
       ),

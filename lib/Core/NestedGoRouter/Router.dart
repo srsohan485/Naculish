@@ -1,10 +1,14 @@
 // lib/Core/Router/app_router.dart
-
 import 'package:go_router/go_router.dart';
+import '../../Features/AppUILightMode/Home/HomeAvenueScreen.dart';
+import '../../Features/AppUILightMode/Home/HomeLessonDetailScreen.dart';
 import '../../Features/AppUILightMode/Home/HomeMapScreen.dart';
 import '../../Features/AppUILightMode/Leaderboard/LeaderboardScreen.dart';
 import '../../Features/AppUILightMode/Profile/ProfileScreen.dart';
 import '../../Features/AppUILightMode/Quest/QuestMenuScreen.dart';
+import '../../Features/AppUILightMode/Quiz/QuizBasicGreetingsScreen.dart';
+import '../../Features/AppUILightMode/Quiz/QuizIntroYourselfScreen.dart';
+import '../../Features/AppUILightMode/Quiz/QuizWhatsGoodScreen.dart';
 import '../../Features/AppUILightMode/Shop/ShopScreen.dart';
 import '../../Features/AppUILightMode/Speak/SpeakScreen.dart';
 import '../BottomNavBar/MainScaffold.dart';
@@ -24,6 +28,36 @@ final GoRouter appRouter = GoRouter(
             GoRoute(
               path: '/home',
               builder: (context, state) => const HomeMapScreen(),
+              routes: [
+                GoRoute(
+                  path: 'avenue',
+                  builder: (context, state) => const HomeAvenueScreen(),
+                  routes: [
+                    GoRoute(
+                      path: 'lesson-detail',
+                      builder: (context, state) => const HomeLessonDetailScreen(),
+                    )
+                  ]
+                ),
+                GoRoute(
+                  path: 'lesson-detail',
+                  builder: (context, state) => const HomeLessonDetailScreen(),
+                  routes: [
+                    GoRoute(
+                      path: 'basic-greetings',
+                      builder: (context, state) => const QuizBasicGreetingsScreen(),
+                    ),
+                    GoRoute(
+                      path: 'whats-good',
+                      builder: (context, state) => const QuizWhatsGoodScreen(),
+                    ),
+                    GoRoute(
+                      path: 'intro-yourself',
+                      builder: (context, state) => const QuizIntroYourselfScreen(),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),

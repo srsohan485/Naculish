@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/AppText/app_text.dart';
@@ -15,33 +16,38 @@ class LessonCard extends StatelessWidget {
   final String lessonsText;
   final String completedText;
   final double progress;
+  final String routePath;
 
   const LessonCard({
     required this.title,
     required this.lessonsText,
     required this.completedText,
     required this.progress,
+    required this.routePath,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(14.w),
-      decoration: BoxDecoration(
-        color: AppColors.instance.boxcard,
-        borderRadius: BorderRadius.circular(12.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.06),
-            blurRadius: 6,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: GestureDetector(
-        onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeLessonDetailScreen()));
-        },
+    return InkWell(
+      onTap: () {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          context.push(routePath);
+        });
+      },
+      borderRadius: BorderRadius.circular(12.r),
+      child: Container(
+        padding: EdgeInsets.all(14.w),
+        decoration: BoxDecoration(
+          color: AppColors.instance.boxcard,
+          borderRadius: BorderRadius.circular(12.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.06),
+              blurRadius: 6,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -90,7 +96,7 @@ class LessonDetailTile extends StatelessWidget {
   final String title;
   final String subtitle;
   final bool isUnlocked;
-  final Widget? destination; // 👈 add this
+  final String? routePath;
 
 
   const LessonDetailTile({
@@ -98,7 +104,7 @@ class LessonDetailTile extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.isUnlocked,
-    this.destination, // 👈 add
+    this.routePath,
   });
 
   @override
@@ -117,6 +123,7 @@ class LessonDetailTile extends StatelessWidget {
         ],
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Icon
           Container(
@@ -136,6 +143,7 @@ class LessonDetailTile extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   title,
@@ -158,42 +166,42 @@ class LessonDetailTile extends StatelessWidget {
           ),
           // Lock / Start button
           isUnlocked
-              ? ElevatedButton(
-            onPressed: isUnlocked && destination != null
-                ? () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => destination!),
-              );
-            }
-                : null,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.instance.loginBtnColor,
-              padding: EdgeInsets.symmetric(
-                  horizontal: 14.w, vertical: 6.h),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.r),
-              ),
-              elevation: 0,
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  AppStrings.start,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+              ? Expanded(
+                child: ElevatedButton(
+                            onPressed: isUnlocked && routePath != null
+                  ? () {
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  context.push(routePath!);
+                });
+                            }
+                  : null,
+                            style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.instance.loginBtnColor,
+                padding: EdgeInsets.symmetric(
+                    horizontal: 14.w, vertical: 6.h),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.r),
                 ),
-                SizedBox(width: 4.w),
-                Icon(Icons.play_arrow,
-                    color: Colors.white, size: 14.sp),
-              ],
-            ),
-          )
+                elevation: 0,
+                            ),
+                            child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    AppStrings.start,
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(width: 4.w),
+                  Icon(Icons.play_arrow,
+                      color: Colors.white, size: 14.sp),
+                ],
+                            ),
+                          ),
+              )
               : Icon(Icons.lock,
               color: AppColors.instance.subTextColor,
               size: 20.sp),
@@ -243,7 +251,9 @@ class StatItem extends StatelessWidget {
             style: TextStyle(
                 color: color,
                 fontSize: 13.sp,
-                fontWeight: FontWeight.bold)),
+                fontWeight: FontWeight.bold
+            )
+        ),
       ],
     );
   }
