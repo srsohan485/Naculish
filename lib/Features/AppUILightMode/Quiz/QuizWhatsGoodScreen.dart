@@ -1,19 +1,19 @@
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naculis/Features/AppUILightMode/Quiz/QuizWidget.dart';
 
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/Theme/app_theme_colors.dart';
 
 class QuizWhatsGoodScreen extends StatelessWidget {
   const QuizWhatsGoodScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Scaffold(
-      backgroundColor: const Color(0xFFF5DEB3),
+      backgroundColor: colors.background, // ✅
       body: SafeArea(
         child: Column(
           children: [
@@ -29,7 +29,6 @@ class QuizWhatsGoodScreen extends StatelessWidget {
                 child: QuizCard(questionNumber: 2),
               ),
             ),
-
           ],
         ),
       ),

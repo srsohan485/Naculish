@@ -99,7 +99,14 @@ class ProfileScreen extends StatelessWidget {
 
                     SizedBox(height: 6.h),
                     SectionLabel(label: AppStrings.support),
-                    MenuTile(icon: Icons.mail_outline, label: AppStrings.contactUs),
+                    MenuTile(
+                      icon: Icons.mail_outline,
+                      label: AppStrings.contactUs,
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => ContactUsPage()));
+                      },
+                    ),
                     MenuTile(icon: Icons.logout, label: AppStrings.logout, isRed: true),
 
                     SizedBox(height: 16.h),

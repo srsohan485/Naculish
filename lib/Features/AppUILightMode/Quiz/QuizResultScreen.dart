@@ -1,21 +1,20 @@
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naculis/Core/AppImages/app_images.dart';
 import 'package:naculis/Features/AppUILightMode/Quiz/QuizWidget.dart';
 
-import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/Theme/app_theme_colors.dart';
 
 class QuizResultScreen extends StatelessWidget {
   const QuizResultScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Scaffold(
-      backgroundColor: const Color(0xFFF5DEB3),
+      backgroundColor: colors.background, // ✅
       body: SafeArea(
         child: Column(
           children: [
@@ -25,22 +24,13 @@ class QuizResultScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(height: 12.h),
-
-                    // Trophy image in bordered box
-                    Image.asset(AppImages.Tropy,
-                        width: 300.w,height: 300.h,
-                      ),
-
-
+                    Image.asset(AppImages.Tropy, width: 300.w, height: 300.h),
                     SizedBox(height: 16.h),
 
-                    // Congratulations text
+                    // Congratulations — gradient text
                     ShaderMask(
                       shaderCallback: (bounds) => LinearGradient(
-                        colors: [
-                          AppColors.instance.orange,
-                          AppColors.instance.loginBtnColor,
-                        ],
+                        colors: [colors.accentOrange, colors.primaryBtn], // ✅
                       ).createShader(bounds),
                       child: Text(
                         AppStrings.congratulations,
@@ -51,7 +41,6 @@ class QuizResultScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-
                     SizedBox(height: 16.h),
 
                     // XP + Amazing row
@@ -62,7 +51,7 @@ class QuizResultScreen extends StatelessWidget {
                             label: AppStrings.totalXP,
                             icon: '⚡',
                             value: '10',
-                            iconColor: AppColors.instance.start,
+                            iconColor: colors.star, // ✅
                           ),
                         ),
                         SizedBox(width: 12.w),
@@ -71,12 +60,11 @@ class QuizResultScreen extends StatelessWidget {
                             label: AppStrings.amazing,
                             icon: '🎯',
                             value: AppStrings.percentage,
-                            iconColor: AppColors.instance.orange,
+                            iconColor: colors.accentOrange, // ✅
                           ),
                         ),
                       ],
                     ),
-
                     SizedBox(height: 20.h),
 
                     // Earned Gems
@@ -85,7 +73,7 @@ class QuizResultScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.instance.titleTextColor,
+                        color: colors.normalText, // ✅
                       ),
                     ),
                     SizedBox(height: 10.h),
@@ -99,12 +87,11 @@ class QuizResultScreen extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 32.sp,
                             fontWeight: FontWeight.w900,
-                            color: AppColors.instance.titleTextColor,
+                            color: colors.normalText, // ✅
                           ),
                         ),
                       ],
                     ),
-
                     SizedBox(height: 28.h),
 
                     // Action buttons
@@ -113,7 +100,7 @@ class QuizResultScreen extends StatelessWidget {
                         Expanded(
                           child: ResultButton(
                             label: AppStrings.shareresults,
-                            backgroundColor: AppColors.instance.loginBtnColor,
+                            backgroundColor: colors.primaryBtn, // ✅
                             textColor: Colors.white,
                             onTap: () {},
                           ),
@@ -122,7 +109,7 @@ class QuizResultScreen extends StatelessWidget {
                         Expanded(
                           child: ResultButton(
                             label: AppStrings.stringtakenewquiz,
-                            backgroundColor: AppColors.instance.loginBtnColor,
+                            backgroundColor: colors.primaryBtn, // ✅
                             textColor: Colors.white,
                             onTap: () {},
                           ),
@@ -134,7 +121,6 @@ class QuizResultScreen extends StatelessWidget {
                 ),
               ),
             ),
-
           ],
         ),
       ),

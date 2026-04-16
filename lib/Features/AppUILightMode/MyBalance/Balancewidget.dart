@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppImages/app_images.dart';
+import '../../../Core/Theme/app_theme_colors.dart';
 
 // ── Models ────────────────────────────────────────────────────────────────────
-
 enum ActivityTab { received, requested, rejected }
-
 enum TransactionStatus { completed, pending, rejected }
 
 class Transaction {
@@ -26,22 +24,18 @@ class Transaction {
   });
 }
 
-// ── App Colors (from AppColors) ───────────────────────────────────────────────
-
-
-
-
 // ── Header ────────────────────────────────────────────────────────────────────
-
 class Header extends StatelessWidget {
   final VoidCallback onWithdraw;
   const Header({required this.onWithdraw});
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Container(
       width: double.infinity,
-      color: AppColors.instance.orange,
+      color: colors.accentOrange, // ✅
       padding: EdgeInsets.only(
         top: MediaQuery.of(context).padding.top + 20.h,
         bottom: 24.h,
@@ -53,13 +47,13 @@ class Header extends StatelessWidget {
             style: TextStyle(
               fontSize: 32.sp,
               fontWeight: FontWeight.w700,
-              color: AppColors.instance.white50,
+              color: Colors.white,
             ),
           ),
           SizedBox(height: 4.h),
           Text(
             'Available Balance',
-            style: TextStyle(fontSize: 13.sp, color: AppColors.instance.white50.withOpacity(0.9)),
+            style: TextStyle(fontSize: 13.sp, color: Colors.white.withOpacity(0.9)),
           ),
           SizedBox(height: 16.h),
           GestureDetector(
@@ -67,7 +61,7 @@ class Header extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 40.w, vertical: 10.h),
               decoration: BoxDecoration(
-                color: AppColors.instance.white50,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(24.r),
               ),
               child: Text(
@@ -75,7 +69,7 @@ class Header extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 15.sp,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.instance.orange,
+                  color: colors.accentOrange, // ✅
                 ),
               ),
             ),
@@ -87,7 +81,6 @@ class Header extends StatelessWidget {
 }
 
 // ── Tab Bar ───────────────────────────────────────────────────────────────────
-
 class TabBar extends StatelessWidget {
   final ActivityTab selected;
   final ValueChanged<ActivityTab> onTabChanged;
@@ -96,19 +89,22 @@ class TabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Row(
       children: ActivityTab.values.map((tab) {
         final isSelected = tab == selected;
         final label = tab.name[0].toUpperCase() + tab.name.substring(1);
+
         return GestureDetector(
           onTap: () => onTabChanged(tab),
           child: Container(
             margin: EdgeInsets.only(right: 12.w),
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
             decoration: BoxDecoration(
-              color: isSelected ? AppColors.instance.white50 : Colors.transparent,
+              color: isSelected ? colors.card : Colors.transparent, // ✅
               border: Border.all(
-                color: isSelected ? AppColors.instance.black : AppColors.instance.border,
+                color: isSelected ? colors.normalText : colors.border, // ✅
                 width: 1.2,
               ),
               borderRadius: BorderRadius.circular(6.r),
@@ -117,9 +113,8 @@ class TabBar extends StatelessWidget {
               label,
               style: TextStyle(
                 fontSize: 13.sp,
-                fontWeight:
-                isSelected ? FontWeight.w600 : FontWeight.w400,
-                color: AppColors.instance.black,
+                fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+                color: colors.normalText, // ✅
               ),
             ),
           ),
@@ -130,8 +125,7 @@ class TabBar extends StatelessWidget {
 }
 
 // ── Transaction Card ──────────────────────────────────────────────────────────
-
-class TransactionCard extends StatelessWidget{
+class TransactionCard extends StatelessWidget {
   final Transaction transaction;
   final bool isHighlighted;
 
@@ -140,14 +134,14 @@ class TransactionCard extends StatelessWidget{
     this.isHighlighted = false,
   });
 
-  Color get _statusColor {
+  Color _statusColor(AppThemeColors colors) {
     switch (transaction.status) {
       case TransactionStatus.completed:
-        return AppColors.instance.green;
+        return colors.success; // ✅
       case TransactionStatus.pending:
-        return AppColors.instance.orange;
+        return colors.accentOrange; // ✅
       case TransactionStatus.rejected:
-        return AppColors.instance.error;
+        return colors.error; // ✅
     }
   }
 
@@ -164,13 +158,15 @@ class TransactionCard extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Container(
       padding: EdgeInsets.all(12.w),
       decoration: BoxDecoration(
-        color: AppColors.instance.card,
+        color: colors.card, // ✅
         borderRadius: BorderRadius.circular(10.r),
         border: isHighlighted
-            ? Border.all(color: AppColors.instance.primary, width: 1.5)
+            ? Border.all(color: colors.accentOrange, width: 1.5) // ✅
             : Border.all(color: Colors.transparent),
         boxShadow: [
           BoxShadow(
@@ -190,7 +186,7 @@ class TransactionCard extends StatelessWidget{
                 style: TextStyle(
                   fontSize: 13.sp,
                   fontWeight: FontWeight.w500,
-                  color: AppColors.instance.white50,
+                  color: colors.normalText, // ✅
                 ),
               ),
               Text(
@@ -198,7 +194,7 @@ class TransactionCard extends StatelessWidget{
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.instance.white50,
+                  color: colors.normalText, // ✅
                 ),
               ),
             ],
@@ -209,8 +205,7 @@ class TransactionCard extends StatelessWidget{
             children: [
               Text(
                 transaction.source,
-                style: TextStyle(fontSize: 12.sp,
-                    color: AppColors.instance.white50),
+                style: TextStyle(fontSize: 12.sp, color: colors.subText), // ✅
               ),
             ],
           ),
@@ -220,29 +215,27 @@ class TransactionCard extends StatelessWidget{
             children: [
               Text(
                 transaction.date,
-                style: TextStyle(fontSize: 11.sp, color: AppColors.instance.white50),
+                style: TextStyle(fontSize: 11.sp, color: colors.subText), // ✅
               ),
             ],
           ),
           SizedBox(height: 6.h),
           Row(
-            children: [
-              PaypalBadge(),
-            ],
+            children: [PaypalBadge()],
           ),
           Align(
             alignment: Alignment.centerRight,
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 3.h),
               decoration: BoxDecoration(
-                color: _statusColor,
+                color: _statusColor(colors),
                 borderRadius: BorderRadius.circular(4.r),
               ),
               child: Text(
                 _statusLabel,
                 style: TextStyle(
                   fontSize: 11.sp,
-                  color: AppColors.instance.black,
+                  color: Colors.white,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -254,20 +247,23 @@ class TransactionCard extends StatelessWidget{
   }
 }
 
+// ── PayPal Badge ──────────────────────────────────────────────────────────────
 class PaypalBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 3.h),
       decoration: BoxDecoration(
-        color: AppColors.instance.white50,
+        color: colors.card, // ✅
         borderRadius: BorderRadius.circular(4.r),
       ),
       child: Text(
         'PayPal',
         style: TextStyle(
           fontSize: 10.sp,
-          color: AppColors.instance.orange,
+          color: colors.accentOrange, // ✅
           fontWeight: FontWeight.w700,
           fontStyle: FontStyle.italic,
         ),
@@ -277,7 +273,6 @@ class PaypalBadge extends StatelessWidget {
 }
 
 // ── Withdraw Bottom Sheet ─────────────────────────────────────────────────────
-
 class WithdrawBottomSheet extends StatefulWidget {
   const WithdrawBottomSheet();
 
@@ -296,10 +291,12 @@ class WithdrawBottomSheetState extends State<WithdrawBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Container(
       margin: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: AppColors.instance.white50,
+        color: colors.card, // ✅
         borderRadius: BorderRadius.circular(16.r),
       ),
       child: Padding(
@@ -321,7 +318,7 @@ class WithdrawBottomSheetState extends State<WithdrawBottomSheet> {
                   style: TextStyle(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w700,
-                    color: AppColors.instance.black,
+                    color: colors.normalText, // ✅
                   ),
                 ),
                 GestureDetector(
@@ -329,10 +326,10 @@ class WithdrawBottomSheetState extends State<WithdrawBottomSheet> {
                   child: Container(
                     padding: EdgeInsets.all(4.w),
                     decoration: BoxDecoration(
-                      color: AppColors.instance.error,
+                      color: colors.error, // ✅
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(Icons.close, color: AppColors.instance.white50, size: 16.sp),
+                    child: Icon(Icons.close, color: Colors.white, size: 16.sp),
                   ),
                 ),
               ],
@@ -340,7 +337,7 @@ class WithdrawBottomSheetState extends State<WithdrawBottomSheet> {
             SizedBox(height: 8.h),
             Text(
               'You can withdraw 10.00\$ , 24 hours auto pay on your account',
-              style: TextStyle(fontSize: 12.sp, color: AppColors.instance.textColor),
+              style: TextStyle(fontSize: 12.sp, color: colors.subText), // ✅
             ),
             SizedBox(height: 16.h),
             Text(
@@ -348,30 +345,29 @@ class WithdrawBottomSheetState extends State<WithdrawBottomSheet> {
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w500,
-                color: AppColors.instance.black,
+                color: colors.normalText, // ✅
               ),
             ),
             SizedBox(height: 8.h),
             TextField(
               controller: _amountController,
               keyboardType: TextInputType.number,
-              style: TextStyle(fontSize: 14.sp),
+              style: TextStyle(fontSize: 14.sp, color: colors.normalText),
               decoration: InputDecoration(
                 hintText: '\$ : 0.00',
-                hintStyle: TextStyle(color: AppColors.instance.black, fontSize: 13.sp),
-                contentPadding:
-                EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
+                hintStyle: TextStyle(color: colors.hintText, fontSize: 13.sp),
+                contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.r),
-                  borderSide: BorderSide(color: AppColors.instance.border),
+                  borderSide: BorderSide(color: colors.border),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.r),
-                  borderSide: BorderSide(color: AppColors.instance.border),
+                  borderSide: BorderSide(color: colors.border),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.r),
-                  borderSide: BorderSide(color: AppColors.instance.orange),
+                  borderSide: BorderSide(color: colors.accentOrange), // ✅
                 ),
               ),
             ),
@@ -381,20 +377,18 @@ class WithdrawBottomSheetState extends State<WithdrawBottomSheet> {
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w500,
-                color: AppColors.instance.black,
+                color: colors.normalText, // ✅
               ),
             ),
             SizedBox(height: 8.h),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
               decoration: BoxDecoration(
-                border: Border.all(color: AppColors.instance.border),
+                border: Border.all(color: colors.border), // ✅
                 borderRadius: BorderRadius.circular(8.r),
               ),
               child: Row(
-                children: [
-                  PaypalBadge(),
-                ],
+                children: [PaypalBadge()],
               ),
             ),
             SizedBox(height: 20.h),
@@ -404,7 +398,7 @@ class WithdrawBottomSheetState extends State<WithdrawBottomSheet> {
               child: ElevatedButton(
                 onPressed: () => Navigator.pop(context),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.instance.loginBtnColor,
+                  backgroundColor: colors.primaryBtn, // ✅
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.r),
                   ),
@@ -415,7 +409,7 @@ class WithdrawBottomSheetState extends State<WithdrawBottomSheet> {
                   style: TextStyle(
                     fontSize: 15.sp,
                     fontWeight: FontWeight.w600,
-                    color: AppColors.instance.white50,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -426,6 +420,3 @@ class WithdrawBottomSheetState extends State<WithdrawBottomSheet> {
     );
   }
 }
-
-// ── Bottom Navigation ─────────────────────────────────────────────────────────
-

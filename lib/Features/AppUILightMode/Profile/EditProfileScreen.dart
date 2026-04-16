@@ -11,9 +11,7 @@ class EditProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ✅ hardcode সরানো
     final colors = context.appColors;
-
     return Scaffold(
       backgroundColor: colors.background,
       body: SafeArea(

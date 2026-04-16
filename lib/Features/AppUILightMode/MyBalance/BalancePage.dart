@@ -1,11 +1,7 @@
-
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' hide TabBar;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:naculis/Core/AppColor/app_color.dart';
 
+import '../../../Core/Theme/app_theme_colors.dart';
 import 'Balancewidget.dart';
 
 class BalancePage extends StatefulWidget {
@@ -91,8 +87,10 @@ class _BalancePageState extends State<BalancePage> {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Scaffold(
-      backgroundColor: AppColors.instance.bacgroundcolor,
+      backgroundColor: colors.background, // ✅
       body: Column(
         children: [
           Header(onWithdraw: _showWithdrawSheet),
@@ -107,7 +105,7 @@ class _BalancePageState extends State<BalancePage> {
                     style: TextStyle(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
-                      color: AppColors.instance.black,
+                      color: colors.normalText, // ✅
                     ),
                   ),
                   SizedBox(height: 12.h),
@@ -116,26 +114,19 @@ class _BalancePageState extends State<BalancePage> {
                     onTabChanged: (t) => setState(() => _selectedTab = t),
                   ),
                   SizedBox(height: 16.h),
-                  ..._currentTransactions
-                      .asMap()
-                      .entries
-                      .map((e) => Padding(
+                  ..._currentTransactions.asMap().entries.map((e) => Padding(
                     padding: EdgeInsets.only(
-                        bottom: e.key < _currentTransactions.length - 1
-                            ? 12.h
-                            : 0),
+                      bottom: e.key < _currentTransactions.length - 1 ? 12.h : 0,
+                    ),
                     child: TransactionCard(
                       transaction: e.value,
-                      isHighlighted: _selectedTab ==
-                          ActivityTab.requested &&
-                          e.key == 0,
+                      isHighlighted: _selectedTab == ActivityTab.requested && e.key == 0,
                     ),
                   )),
                 ],
               ),
             ),
           ),
-
         ],
       ),
     );

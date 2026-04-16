@@ -1,27 +1,27 @@
-// ─── SCREEN 1: BASIC GREETINGS QUIZ ──────────────────────────────────────────
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naculis/Features/AppUILightMode/Quiz/QuizResultScreen.dart';
 
-import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/Theme/app_theme_colors.dart';
 import '../Speak/ChatScreen.dart';
 import '../Speak/SpeakScreen.dart';
 
-
+// ── Quiz Card ─────────────────────────────────────────────────────────────────
 class QuizCard extends StatelessWidget {
   final int questionNumber;
   const QuizCard({required this.questionNumber});
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Container(
       width: double.infinity,
       padding: EdgeInsets.all(14.w),
       decoration: BoxDecoration(
-        color: AppColors.instance.box,
+        color: colors.card, // ✅
         borderRadius: BorderRadius.circular(14.r),
         boxShadow: [
           BoxShadow(
@@ -37,7 +37,7 @@ class QuizCard extends StatelessWidget {
         children: [
           // Question text
           Container(
-            color: AppColors.instance.boxcard,
+            color: colors.inputFill, // ✅
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 8.h),
               child: Text(
@@ -45,7 +45,7 @@ class QuizCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 13.sp,
                   fontWeight: FontWeight.w500,
-                  color: AppColors.instance.titleTextColor,
+                  color: colors.normalText, // ✅
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -58,33 +58,20 @@ class QuizCard extends StatelessWidget {
             children: [
               Expanded(
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatScreen()));
-                  },
+                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ChatScreen())),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.instance.loginBtnColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.r),
-                    ),
+                    backgroundColor: colors.primaryBtn, // ✅
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
                     padding: EdgeInsets.symmetric(vertical: 8.h),
                     elevation: 0,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        '🤙',
-                        style: TextStyle(fontSize: 14.sp),
-                      ),
+                      Text('🤙', style: TextStyle(fontSize: 14.sp)),
                       SizedBox(width: 6.w),
-                      Text(
-                        AppStrings.type,
-                        style: TextStyle(
-                          fontSize: 13.sp,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
+                      Text(AppStrings.type,
+                          style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold, color: Colors.white)),
                     ],
                   ),
                 ),
@@ -92,86 +79,56 @@ class QuizCard extends StatelessWidget {
               SizedBox(width: 10.w),
               Expanded(
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SpeakScreen()));
-                  },
+                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => SpeakScreen())),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.instance.orange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.r),
-                    ),
+                    backgroundColor: colors.accentOrange, // ✅
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
                     padding: EdgeInsets.symmetric(vertical: 8.h),
                     elevation: 0,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.mic,
-                        color: Colors.white,
-                        size: 16.sp,
-                      ),
+                      Icon(Icons.mic, color: Colors.white, size: 16.sp),
                       SizedBox(width: 6.w),
-                      Text(
-                        AppStrings.speak,
-                        style: TextStyle(
-                          fontSize: 13.sp,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
+                      Text(AppStrings.speak,
+                          style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold, color: Colors.white)),
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
-
           SizedBox(height: 12.h),
 
           // Answer text field
           Container(
             width: double.infinity,
-            padding:
-            EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
+            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
             decoration: BoxDecoration(
-              color: AppColors.instance.green100,
+              color: colors.boxBg, // ✅
               borderRadius: BorderRadius.circular(8.r),
             ),
             child: Text(
               AppStrings.typeYourAnswer,
-              style: TextStyle(
-                fontSize: 12.sp,
-                color: AppColors.instance.hintText,
-              ),
+              style: TextStyle(fontSize: 12.sp, color: colors.hintText),
             ),
           ),
-
           SizedBox(height: 12.h),
 
           // Submit button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>QuizResultScreen()));
-              },
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => QuizResultScreen())),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.instance.loginBtnColor,
+                backgroundColor: colors.primaryBtn, // ✅
                 padding: EdgeInsets.symmetric(vertical: 14.h),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.r),
-                ),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
                 elevation: 0,
               ),
-              child: Text(
-                AppStrings.submitYourAnswer,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
+              child: Text(AppStrings.submitYourAnswer,
+                  style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.white)),
             ),
           ),
         ],
@@ -180,8 +137,7 @@ class QuizCard extends StatelessWidget {
   }
 }
 
-// ─── SHARED: QUIZ HEADER ──────────────────────────────────────────────────────
-
+// ── Quiz Header ───────────────────────────────────────────────────────────────
 class QuizHeader extends StatelessWidget {
   final String title;
   final String subtitle;
@@ -189,36 +145,26 @@ class QuizHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(vertical: 14.h),
-      color: AppColors.instance.loginBtnColor,
+      color: colors.primaryBtn, // ✅
       child: Column(
         children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 18.sp,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
+          Text(title,
+              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold, color: Colors.white)),
           SizedBox(height: 2.h),
-          Text(
-            subtitle,
-            style: TextStyle(
-              fontSize: 12.sp,
-              color: Colors.white70,
-            ),
-          ),
+          Text(subtitle,
+              style: TextStyle(fontSize: 12.sp, color: Colors.white70)),
         ],
       ),
     );
   }
 }
 
-// ─── SHARED: RESULT STAT CARD ─────────────────────────────────────────────────
-
+// ── Result Stat Card ──────────────────────────────────────────────────────────
 class ResultStatCard extends StatelessWidget {
   final String label;
   final String icon;
@@ -234,10 +180,12 @@ class ResultStatCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Container(
       padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 10.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colors.card, // ✅
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
@@ -249,28 +197,16 @@ class ResultStatCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 11.sp,
-              color: AppColors.instance.subTextColor,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          Text(label,
+              style: TextStyle(fontSize: 11.sp, color: colors.subText, fontWeight: FontWeight.w500)),
           SizedBox(height: 6.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(icon, style: TextStyle(fontSize: 16.sp)),
               SizedBox(width: 4.w),
-              Text(
-                value,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.instance.titleTextColor,
-                ),
-              ),
+              Text(value,
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: colors.normalText)),
             ],
           ),
         ],
@@ -279,8 +215,7 @@ class ResultStatCard extends StatelessWidget {
   }
 }
 
-// ─── SHARED: RESULT BUTTON ────────────────────────────────────────────────────
-
+// ── Result Button ─────────────────────────────────────────────────────────────
 class ResultButton extends StatelessWidget {
   final String label;
   final Color backgroundColor;
@@ -305,29 +240,24 @@ class ResultButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.r),
         ),
         child: Center(
-          child: Text(
-            label,
-            style: TextStyle(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.bold,
-              color: textColor,
-            ),
-            textAlign: TextAlign.center,
-          ),
+          child: Text(label,
+              style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.bold, color: textColor),
+              textAlign: TextAlign.center),
         ),
       ),
     );
   }
 }
 
-// ─── SHARED: TOP STATS BAR ────────────────────────────────────────────────────
-
+// ── Quiz Top Stats Bar ────────────────────────────────────────────────────────
 class QuizTopStatsBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Container(
       width: double.infinity,
-      color: AppColors.instance.orange,
+      color: colors.accentOrange, // ✅
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -353,16 +283,9 @@ class StatChip extends StatelessWidget {
       children: [
         Text(icon, style: TextStyle(fontSize: 14.sp)),
         SizedBox(width: 4.w),
-        Text(
-          value,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 13.sp,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        Text(value,
+            style: TextStyle(color: Colors.white, fontSize: 13.sp, fontWeight: FontWeight.bold)),
       ],
     );
   }
 }
-
