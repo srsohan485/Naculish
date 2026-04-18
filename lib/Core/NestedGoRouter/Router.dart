@@ -1,5 +1,6 @@
 // lib/Core/Router/app_router.dart
 import 'package:go_router/go_router.dart';
+import '../../Features/AppUILightMode/Auth/View/forgot_password.dart';
 import '../../Features/AppUILightMode/Home/HomeAvenueScreen.dart';
 import '../../Features/AppUILightMode/Home/HomeLessonDetailScreen.dart';
 import '../../Features/AppUILightMode/Home/HomeMapScreen.dart';
@@ -14,8 +15,12 @@ import '../../Features/AppUILightMode/Speak/SpeakScreen.dart';
 import '../BottomNavBar/MainScaffold.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: '/home',
+  initialLocation: '/forgot-password',
   routes: [
+    GoRoute(
+      path: '/forgot-password',
+      builder: (context, state) => const ForgotPasswordScreen(),
+    ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         return MainScaffold(navigationShell: navigationShell);

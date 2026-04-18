@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
@@ -51,10 +52,7 @@ class CreateProfileFeelingScreen extends StatelessWidget {
             BottomButton(
               label: AppStrings.continu,
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => HomeMapScreen()),
-                );
+                context.go('/home');
               },
             ),
           ],
