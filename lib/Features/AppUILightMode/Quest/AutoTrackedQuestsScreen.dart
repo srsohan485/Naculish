@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naculis/Features/AppUILightMode/Quest/QuestWidget.dart';
 
+import '../../../Core/AppBar/TopStatsBar.dart';
 import '../../../Core/AppText/app_text.dart';
 import '../../../Core/Theme/app_theme_colors.dart';
 
@@ -17,7 +18,7 @@ class AutoTrackedQuestsScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            TopStatsBar(),
+            MainTopStatsBar(),
             QuestHeader(title: AppStrings.autoTrackedQuests),
             Expanded(
               child: ListView(

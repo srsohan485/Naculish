@@ -250,27 +250,27 @@ class ResultButton extends StatelessWidget {
 }
 
 // ── Quiz Top Stats Bar ────────────────────────────────────────────────────────
-class QuizTopStatsBar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.appColors; // ✅
-
-    return Container(
-      width: double.infinity,
-      color: colors.accentOrange, // ✅
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          StatChip(icon: '❤️', value: '5'),
-          StatChip(icon: '🔥', value: '3'),
-          StatChip(icon: '⭐', value: '5'),
-          StatChip(icon: '💎', value: '300'),
-        ],
-      ),
-    );
-  }
-}
+// class QuizTopStatsBar extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     final colors = context.appColors; // ✅
+//
+//     return Container(
+//       width: double.infinity,
+//       color: colors.accentOrange, // ✅
+//       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           StatChip(icon: '❤️', value: '5'),
+//           StatChip(icon: '🔥', value: '3'),
+//           StatChip(icon: '⭐', value: '5'),
+//           StatChip(icon: '💎', value: '300'),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class StatChip extends StatelessWidget {
   final String icon;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../Core/AppBar/TopStatsBar.dart';
 import '../../../Core/AppText/app_text.dart';
 import '../../../Core/Theme/app_theme_colors.dart';
 import 'HomeWidget.dart';
@@ -41,7 +42,7 @@ class HomeAvenueScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            TopStatsBar(),
+            MainTopStatsBar(),
             SizedBox(height: 8.h),
             Container(
               width: double.infinity,

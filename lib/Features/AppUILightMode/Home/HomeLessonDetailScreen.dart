@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../Core/AppBar/TopStatsBar.dart';
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/AppText/app_text.dart';
 import '../../../Core/Theme/app_theme_colors.dart';
@@ -42,7 +43,7 @@ class HomeLessonDetailScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            TopStatsBar(),
+            MainTopStatsBar(),
             SizedBox(height: 8.h),
             Container(
               width: double.infinity,

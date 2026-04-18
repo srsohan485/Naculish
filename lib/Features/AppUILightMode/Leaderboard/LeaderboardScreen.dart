@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../Core/AppBar/TopStatsBar.dart';
 import '../../../Core/AppText/app_text.dart';
 import '../../../Core/Theme/app_theme_colors.dart';
 import 'LeaderBoardWidget.dart' hide BottomNavBar;
@@ -28,7 +29,7 @@ class LeaderboardScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            TopStatsBar(),
+            MainTopStatsBar(),
             LeaderboardHeader(),
             Expanded(
               child: ListView.separated(

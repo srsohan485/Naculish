@@ -281,7 +281,7 @@ class QuestDivider extends StatelessWidget {
 }
 
 // ── Top Stats Bar ─────────────────────────────────────────────────────────────
-class TopStatsBar extends StatelessWidget {
+/*class TopStatsBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.appColors; // ✅
@@ -302,6 +302,8 @@ class TopStatsBar extends StatelessWidget {
     );
   }
 }
+
+ */
 
 class StatChip extends StatelessWidget {
   final String icon;

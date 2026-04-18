@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naculis/Features/AppUILightMode/Quiz/QuizWidget.dart';
 
+import '../../../Core/AppBar/TopStatsBar.dart';
 import '../../../Core/AppText/app_text.dart';
 import '../../../Core/Theme/app_theme_colors.dart';
 
@@ -17,7 +18,7 @@ class QuizBasicGreetingsScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            QuizTopStatsBar(),
+            MainTopStatsBar(),
             QuizHeader(
               title: AppStrings.basicGreetings,
               subtitle: AppStrings.vocabularyLesson,

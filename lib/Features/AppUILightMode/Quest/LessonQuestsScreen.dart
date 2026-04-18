@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../Core/AppBar/TopStatsBar.dart';
 import '../../../Core/AppText/app_text.dart';
 import '../../../Core/Theme/app_theme_colors.dart';
 import 'QuestWidget.dart';
@@ -17,7 +18,7 @@ class LessonQuestsScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            TopStatsBar(),
+            MainTopStatsBar(),
             QuestHeader(title: AppStrings.lessonQuests),
             Expanded(
               child: SingleChildScrollView(

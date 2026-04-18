@@ -197,27 +197,7 @@ class LessonDetailTile extends StatelessWidget {
   }
 }
 
-// ── Top Stats Bar ─────────────────────────────────────────────────────────────
-class TopStatsBar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.appColors; // ✅
 
-    return Container(
-      width: double.infinity,
-      color: colors.accentOrange, // ✅
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          StatItem(icon: Icons.star, value: '5', color: Colors.white),
-          StatItem(icon: Icons.favorite, value: '5', color: Colors.white),
-          StatItem(icon: Icons.bolt, value: '300', color: Colors.white),
-        ],
-      ),
-    );
-  }
-}
 
 class StatItem extends StatelessWidget {
   final IconData icon;

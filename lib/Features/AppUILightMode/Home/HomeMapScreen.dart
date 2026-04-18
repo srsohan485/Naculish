@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../Core/AppBar/TopStatsBar.dart';
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/Theme/app_theme_colors.dart';
 import 'HomeWidget.dart';
@@ -18,7 +19,7 @@ class HomeMapScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            TopStatsBar(),
+            MainTopStatsBar(),
             Expanded(
               child: SingleChildScrollView(
                 child: SizedBox(

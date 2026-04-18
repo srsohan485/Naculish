@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../Core/AppBar/TopStatsBar.dart';
 import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
 import '../../../Core/BottomNavBar/BottomNavBar.dart';
@@ -24,7 +25,7 @@ class Withdhrawpaypal extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // ── Top stats bar ────────────────
-              TopStatsBar(),
+              MainTopStatsBar(),
               SizedBox(height: 16.h),
               // Progress bar
               GemProgressBar(value: 300, max: 1000),
