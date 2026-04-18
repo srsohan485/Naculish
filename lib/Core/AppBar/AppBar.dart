@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naculis/Core/AppColor/app_color.dart';
 
-class AppBar extends StatelessWidget {
+class MainAppBar extends StatelessWidget {
   final String title;
-  const AppBar({required this.title});
+  const MainAppBar({required this.title});
 
   @override
   Widget build(BuildContext context) {

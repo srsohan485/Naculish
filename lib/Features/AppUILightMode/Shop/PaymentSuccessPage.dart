@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart' hide AppBar;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../Core/AppBar/AppBar.dart';
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/Theme/app_theme_colors.dart';
 import 'ShopWidget.dart' hide BottomNav;
@@ -16,7 +17,7 @@ class PaymentSuccessPage extends StatelessWidget {
       backgroundColor: colors.accentOrangeBox, // ✅
       body: Column(
         children: [
-          AppBar(title: 'Payment Method'),
+          MainAppBar(title: 'Payment Method'),
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 28.w, vertical: 16.h),

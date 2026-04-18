@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart' hide AppBar;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../Core/AppBar/AppBar.dart';
 import '../../../Core/Theme/app_theme_colors.dart';
 import 'CardInformationPage.dart';
 import 'ShopWidget.dart' hide BottomNav;
@@ -34,7 +35,7 @@ class SelectPaymentGatewayPageState extends State<SelectPaymentGatewayPage> {
       backgroundColor: colors.accentOrangeBox, // ✅
       body: Column(
         children: [
-          AppBar(title: 'Payment Method'),
+          MainAppBar(title: 'Payment Method'),
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),

@@ -472,7 +472,7 @@ class NavIcon extends StatelessWidget {
 }
 
 // ── App Bar ───────────────────────────────────────────────────────────────────
-class AppBar extends StatelessWidget {
+/*class AppBar extends StatelessWidget {
   final String title;
   const AppBar({required this.title});
 
@@ -506,7 +506,7 @@ class AppBar extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
 // ── Input Field ───────────────────────────────────────────────────────────────
 class InputFieldm extends StatelessWidget {
