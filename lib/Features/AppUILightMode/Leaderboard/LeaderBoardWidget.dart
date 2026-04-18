@@ -1,20 +1,19 @@
-// ─── LEADERBOARD SCREEN ───────────────────────────────────────────────────────
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/Theme/app_theme_colors.dart';
 
-// ─── LEADERBOARD HEADER ───────────────────────────────────────────────────────
-
+// ── Leaderboard Header ────────────────────────────────────────────────────────
 class LeaderboardHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Container(
       width: double.infinity,
-      color: AppColors.instance.loginBtnColor,
+      color: colors.primaryBtn, // ✅
       padding: EdgeInsets.symmetric(vertical: 14.h),
       child: Column(
         children: [
@@ -27,16 +26,14 @@ class LeaderboardHeader extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8.h),
-          Image.asset(AppImages.Tropy,
-          width: 100,height: 100,)
+          Image.asset(AppImages.Tropy, width: 100, height: 100),
         ],
       ),
     );
   }
 }
 
-// ─── LEADERBOARD TILE ─────────────────────────────────────────────────────────
-
+// ── Leaderboard Tile ──────────────────────────────────────────────────────────
 class LeaderboardTile extends StatelessWidget {
   final String position;
   final String name;
@@ -50,13 +47,12 @@ class LeaderboardTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 14.w,
-        vertical: 10.h,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 10.h),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colors.card, // ✅
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
@@ -68,7 +64,6 @@ class LeaderboardTile extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // Position number
           SizedBox(
             width: 28.w,
             child: Text(
@@ -76,44 +71,31 @@ class LeaderboardTile extends StatelessWidget {
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.bold,
-                color: AppColors.instance.start,
+                color: colors.star, // ✅
               ),
             ),
           ),
-
           SizedBox(width: 8.w),
-
-          // Player avatar
-
-            Image.asset(AppImages.Ellipse,),
-
-
+          Image.asset(AppImages.Ellipse),
           SizedBox(width: 12.w),
-
-          // Player name
           Expanded(
             child: Text(
               name,
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w600,
-                color: AppColors.instance.start,
+                color: colors.normalText, // ✅
               ),
             ),
           ),
-
-          // Diamond icon
           Image.asset(AppImages.Vector),
-
           SizedBox(width: 6.w),
-
-          // Score
           Text(
             score,
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.bold,
-              color: AppColors.instance.start,
+              color: colors.normalText, // ✅
             ),
           ),
         ],
@@ -122,14 +104,15 @@ class LeaderboardTile extends StatelessWidget {
   }
 }
 
-// ─── SHARED: TOP STATS BAR ────────────────────────────────────────────────────
-
+// ── Top Stats Bar ─────────────────────────────────────────────────────────────
 class TopStatsBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Container(
       width: double.infinity,
-      color: AppColors.instance.orange,
+      color: colors.accentOrange, // ✅
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -168,11 +151,12 @@ class StatChip extends StatelessWidget {
   }
 }
 
-// ─── SHARED: BOTTOM NAV BAR ───────────────────────────────────────────────────
-
+// ── Bottom Nav Bar ────────────────────────────────────────────────────────────
 class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     final List<String> navIcons = [
       AppImages.Icon1,
       AppImages.Icon2,
@@ -184,21 +168,15 @@ class BottomNavBar extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      color: AppColors.instance.orange,
+      color: colors.bottomNavBackground, // ✅
       padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: navIcons
-            .map(
-              (icon) => GestureDetector(
-            onTap: () {},
-            child: Image.asset(
-              icon,
-              width: 26.w,
-              height: 26.h,
-            ),
-          ),
-        )
+            .map((icon) => GestureDetector(
+          onTap: () {},
+          child: Image.asset(icon, width: 26.w, height: 26.h),
+        ))
             .toList(),
       ),
     );

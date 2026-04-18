@@ -1,13 +1,9 @@
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../Core/AppText/app_text.dart';
-import '../../../Core/BottomNavBar/BottomNavBar.dart';
-import '../Home/HomeWidget.dart';
-import 'LeaderBoardWidget.dart' hide BottomNavBar, TopStatsBar;
+import '../../../Core/Theme/app_theme_colors.dart';
+import 'LeaderBoardWidget.dart' hide BottomNavBar;
 
 class LeaderboardScreen extends StatelessWidget {
   const LeaderboardScreen({super.key});
@@ -25,24 +21,18 @@ class LeaderboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     return Scaffold(
-      backgroundColor: const Color(0xFFF5DEB3),
+      backgroundColor: colors.background, // ✅
       body: SafeArea(
         child: Column(
           children: [
-            // ── Top Stats Bar
             TopStatsBar(),
-
-            // ── Green Header with title + trophy
             LeaderboardHeader(),
-
-            // ── Player list
             Expanded(
               child: ListView.separated(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 16.w,
-                  vertical: 14.h,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
                 itemCount: _players.length,
                 separatorBuilder: (_, __) => SizedBox(height: 10.h),
                 itemBuilder: (context, index) {
