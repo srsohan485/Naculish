@@ -12,7 +12,7 @@ class ShopScreen extends StatelessWidget {
     final colors = context.appColors; // ✅
 
     return Scaffold(
-      backgroundColor: colors.background, // ✅
+      backgroundColor: colors.accentOrangeBox, // ✅
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),

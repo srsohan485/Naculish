@@ -13,7 +13,7 @@ class ReferFriendPage extends StatelessWidget {
     final colors = context.appColors; // ✅
 
     return Scaffold(
-      backgroundColor: colors.background, // ✅
+      backgroundColor: colors.accentOrangeBox, // ✅
       body: Column(
         children: [
           AppBar(title: 'Refer a Friend'),

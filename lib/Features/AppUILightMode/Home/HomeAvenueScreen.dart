@@ -1,12 +1,8 @@
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppText/app_text.dart';
-import '../../../Core/BottomNavBar/BottomNavBar.dart';
+import '../../../Core/Theme/app_theme_colors.dart';
 import 'HomeWidget.dart';
 
 class HomeAvenueScreen extends StatelessWidget {
@@ -14,45 +10,45 @@ class HomeAvenueScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     final lessons = [
       {
         'title': AppStrings.GreetingsIntros,
         'lessons': AppStrings.Lessons,
         'completed': AppStrings.Completed,
         'progress': 1.0,
-        'routePath': '/home/lesson-detail',  // ✅ এটা add করুন
+        'routePath': '/home/lesson-detail',
       },
       {
         'title': AppStrings.VibeCheck,
         'lessons': AppStrings.Lessons,
         'completed': '3 Completed',
         'progress': 0.5,
-        'routePath': '/home/lesson-detail',  // ✅ এটা add করুন
+        'routePath': '/home/lesson-detail',
       },
       {
         'title': AppStrings.Survival,
         'lessons': AppStrings.Lessons,
         'completed': '2 Completed',
         'progress': 0.33,
-        'routePath': '/home/lesson-detail',  // ✅ এটা add করুন
+        'routePath': '/home/lesson-detail',
       },
     ];
 
     return Scaffold(
-      backgroundColor: AppColors.instance.box,
+      backgroundColor: colors.accentOrangeBox, // ✅
       body: SafeArea(
         child: Column(
           children: [
             TopStatsBar(),
             SizedBox(height: 8.h),
-            // Avenue Header Card
             Container(
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 16.w),
-              padding:
-              EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
               decoration: BoxDecoration(
-                color: AppColors.instance.loginBtnColor,
+                color: colors.primaryBtn, // ✅
                 borderRadius: BorderRadius.circular(14.r),
               ),
               child: Column(
@@ -68,14 +64,12 @@ class HomeAvenueScreen extends StatelessWidget {
                   SizedBox(height: 2.h),
                   Text(
                     AppStrings.Foundational,
-                    style: TextStyle(
-                        fontSize: 12.sp, color: Colors.white70),
+                    style: TextStyle(fontSize: 12.sp, color: Colors.white70),
                   ),
                   SizedBox(height: 2.h),
                   Text(
                     AppStrings.Greetings,
-                    style: TextStyle(
-                        fontSize: 11.sp, color: Colors.white60),
+                    style: TextStyle(fontSize: 11.sp, color: Colors.white60),
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -99,7 +93,6 @@ class HomeAvenueScreen extends StatelessWidget {
                 },
               ),
             ),
-
           ],
         ),
       ),

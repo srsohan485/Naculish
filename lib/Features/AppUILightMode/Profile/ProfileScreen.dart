@@ -23,7 +23,7 @@ class ProfileScreen extends StatelessWidget {
     final colors = context.appColors;
 
     return Scaffold(
-      backgroundColor: colors.background,
+      backgroundColor: colors.accentOrangeBox, // ✅
       body: SafeArea(
         child: Column(
           children: [

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../Core/AppColor/app_color.dart';
 import '../../../Core/AppImages/app_images.dart';
 import '../../../Core/AppText/app_text.dart';
+import '../../../Core/Theme/app_theme_colors.dart';
 import 'HomeWidget.dart';
 
 class HomeLessonDetailScreen extends StatelessWidget {
@@ -11,6 +11,8 @@ class HomeLessonDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors; // ✅
+
     final lessonItems = [
       {
         'icon': AppImages.Icon1,
@@ -36,7 +38,7 @@ class HomeLessonDetailScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: AppColors.instance.background,
+      backgroundColor: colors.accentOrangeBox, // ✅
       body: SafeArea(
         child: Column(
           children: [
@@ -47,7 +49,7 @@ class HomeLessonDetailScreen extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 16.w),
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
               decoration: BoxDecoration(
-                color: AppColors.instance.loginBtnColor,
+                color: colors.primaryBtn, // ✅
                 borderRadius: BorderRadius.circular(14.r),
               ),
               child: Column(
@@ -76,7 +78,7 @@ class HomeLessonDetailScreen extends StatelessWidget {
                 separatorBuilder: (_, __) => SizedBox(height: 10.h),
                 itemBuilder: (context, index) {
                   final item = lessonItems[index];
-                  return IntrinsicHeight(   // ✅ এটা add করুন
+                  return IntrinsicHeight(
                     child: LessonDetailTile(
                       iconPath: item['icon'] as String,
                       title: item['title'] as String,

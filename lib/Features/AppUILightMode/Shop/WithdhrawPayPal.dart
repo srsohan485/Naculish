@@ -16,7 +16,7 @@ class Withdhrawpaypal extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.appColors;
     return Scaffold(
-      backgroundColor: colors.card,
+      backgroundColor: colors.accentOrangeBox, // ✅
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),

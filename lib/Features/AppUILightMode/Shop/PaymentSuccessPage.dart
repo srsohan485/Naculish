@@ -13,7 +13,7 @@ class PaymentSuccessPage extends StatelessWidget {
     final colors = context.appColors; // ✅
 
     return Scaffold(
-      backgroundColor: colors.card, // ✅
+      backgroundColor: colors.accentOrangeBox, // ✅
       body: Column(
         children: [
           AppBar(title: 'Payment Method'),

@@ -30,7 +30,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
     final colors = context.appColors; // ✅
 
     return Scaffold(
-      backgroundColor: colors.background, // ✅
+      backgroundColor: colors.accentOrangeBox, // ✅
       body: Column(
         children: [
           AppBar(title: 'Contact Us'),
